@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ghi ở bến — Lê Hoài Thương</title>
+<meta name="description" content="Blog của Thương. Viết lai rai, truyện với ghi chép. Dạo này đang đăng truyện dài Mùa nước rút.">
+<meta name="author" content="Lê Hoài Thương">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f5efe3'/%3E%3Ctext x='16' y='23' font-size='20' text-anchor='middle' font-family='Georgia,serif' fill='%237c3a2d'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f5efe3;
+    --paper-2:#efe7d6;
+    --ink:#2b2620;
+    --ink-soft:#5d5447;
+    --ink-faint:#8b8170;
+    --rule:#ddd0b8;
+    --accent:#7c3a2d;
+    --accent-2:#9a6a4f;
+    --fs:19px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font:var(--fs)/1.8 'Lora',"Times New Roman","Noto Serif",Georgia,serif;
+    background-image:
+      linear-gradient(180deg, rgba(120,90,40,.05), rgba(120,90,40,0) 220px),
+      radial-gradient(60% 50% at 50% -10%, rgba(124,58,45,.06), rgba(124,58,45,0));
+  }
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(124,58,45,.28)}
+  a:hover{border-bottom-color:var(--accent)}
+  .skip{position:absolute;left:-9999px;top:auto}
+  .skip:focus{left:12px;top:8px;background:#fff;padding:6px 10px;border:1px solid var(--rule);z-index:9}
+
+  /* ---- masthead ---- */
+  .masthead{
+    border-bottom:1px solid var(--rule);
+    background:linear-gradient(180deg,var(--paper-2),var(--paper));
+  }
+  .mast-inner{max-width:980px;margin:0 auto;padding:30px 22px 16px;position:relative}
+  .site-title{
+    font-size:2.55rem;line-height:1.05;letter-spacing:.5px;margin:0;
+    font-weight:normal;font-style:italic;color:var(--ink)
+  }
+  .site-title a{color:inherit;border:none}
+  .tagline{margin:.45rem 0 0;color:var(--ink-soft);font-size:1rem;font-style:italic}
+  nav.main{margin-top:16px;font-size:.97rem}
+  nav.main a{color:var(--ink-soft);border:none;margin-right:18px}
+  nav.main a:hover{color:var(--accent)}
+  .fontctl{position:absolute;right:22px;top:34px;font-size:.8rem;color:var(--ink-faint)}
+  .fontctl button{
+    font-family:inherit;font-size:.95rem;background:transparent;border:1px solid var(--rule);
+    color:var(--ink-soft);width:26px;height:26px;border-radius:3px;cursor:pointer;line-height:1
+  }
+  .fontctl button:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* ---- layout ---- */
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px;display:flex;gap:46px;align-items:flex-start}
+  main{flex:1 1 auto;min-width:0;max-width:680px;padding:34px 0 10px}
+  aside.sidebar{flex:0 0 232px;padding:40px 0 10px;font-size:.92rem;color:var(--ink-soft)}
+
+  /* ---- posts ---- */
+  .post{margin:0 0 8px;padding:0 0 30px;border-bottom:1px solid var(--rule)}
+  .post:last-child{border-bottom:none}
+  .meta{font-size:.82rem;color:var(--ink-faint);letter-spacing:.2px;margin-bottom:.5rem;font-style:italic}
+  .post h2{font-size:1.7rem;line-height:1.25;margin:.1rem 0 .2rem;font-weight:normal}
+  .post h2 .num{color:var(--accent);font-style:italic;font-size:1.15rem;display:block;margin-bottom:.1rem;letter-spacing:.5px}
+  .preface{
+    font-size:.92rem;color:var(--ink-soft);font-style:italic;
+    background:rgba(124,58,45,.045);border-left:2px solid var(--accent-2);
+    padding:.55rem .8rem;margin:.7rem 0 1.1rem
+  }
+  .post p{margin:0 0 1.05rem;text-align:left;hyphens:none}
+  .post p.first{margin-top:1rem}
+  .brk{text-align:center;color:var(--ink-faint);letter-spacing:.7em;margin:1.4rem 0 1.5rem !important;font-size:.9rem;text-indent:.7em}
+  .post-foot{margin-top:1.6rem;font-size:.82rem;color:var(--ink-faint)}
+  .post-foot a{color:var(--ink-soft);border:none}
+  .post-foot a:hover{color:var(--accent)}
+  .post-foot .sep{margin:0 .5em;color:var(--rule)}
+
+  /* ---- author notes (non-fiction posts) ---- */
+  .note{background:rgba(120,90,40,.035);border:1px solid var(--rule);border-radius:4px;padding:20px 24px}
+  .note h2{font-size:1.35rem}
+  .note p{font-size:.97rem}
+
+  /* ---- novel front block ---- */
+  .booktop{text-align:center;padding:26px 0 30px;border-bottom:1px solid var(--rule);margin-bottom:8px}
+  .booktop .bt{font-size:2.2rem;letter-spacing:2px;margin:0;font-weight:normal}
+  .booktop .bsub{color:var(--ink-soft);font-style:italic;margin:.3rem 0 1.4rem;letter-spacing:1px}
+  .booktop .epi{font-style:italic;color:var(--ink-soft);max-width:30rem;margin:0 auto 1rem;font-size:1rem}
+  .booktop .epi cite{display:block;font-size:.85rem;font-style:normal;color:var(--ink-faint);margin-top:.4rem}
+  .booktop .disc{font-size:.9rem;color:var(--ink-faint);font-style:italic;max-width:32rem;margin:1.1rem auto 0}
+
+  .part-divider{text-align:center;margin:18px 0 24px;color:var(--accent);font-style:italic;letter-spacing:3px;font-size:1.05rem}
+  .part-divider span{display:inline-block;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:8px 26px}
+
+  /* ---- sidebar ---- */
+  .box{margin:0 0 30px}
+  .box h3{font-size:.82rem;text-transform:uppercase;letter-spacing:2px;color:var(--accent);border-bottom:1px solid var(--rule);padding-bottom:6px;margin:0 0 12px;font-weight:normal}
+  .box p{margin:0 0 .7rem;line-height:1.6}
+  .box ul{list-style:none;margin:0;padding:0}
+  .box li{margin:0 0 .5rem;line-height:1.45}
+  .box li a{border:none;color:var(--ink-soft)}
+  .box li a:hover{color:var(--accent)}
+  .box .toc-part{font-style:italic;color:var(--ink-faint);margin:.9rem 0 .35rem;font-size:.85rem}
+  .box .toc-part:first-child{margin-top:0}
+  .box small{color:var(--ink-faint)}
+  .arch li{display:flex;justify-content:space-between;gap:8px}
+  .arch li span{color:var(--ink-faint)}
+
+  /* ---- footer ---- */
+  footer{border-top:1px solid var(--rule);margin-top:30px;background:var(--paper-2)}
+  .foot-inner{max-width:980px;margin:0 auto;padding:24px 22px 40px;color:var(--ink-faint);font-size:.85rem}
+  .foot-inner p{margin:.3rem 0;font-style:italic}
+
+  /* ---- back to top ---- */
+  #totop{position:fixed;right:18px;bottom:18px;width:40px;height:40px;border-radius:50%;
+    background:var(--paper-2);border:1px solid var(--rule);color:var(--accent);font-size:1.1rem;
+    cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s;display:flex;align-items:center;justify-content:center}
+  #totop.show{opacity:.92;pointer-events:auto}
+  #totop:hover{border-color:var(--accent)}
+
+  /* ---- responsive ---- */
+  @media (max-width:820px){
+    .wrap{flex-direction:column;gap:0}
+    main{max-width:100%;padding-bottom:6px}
+    aside.sidebar{flex-basis:auto;width:100%;border-top:1px dashed var(--rule);padding-top:26px;margin-top:6px}
+    .fontctl{display:none}
+    .site-title{font-size:2.1rem}
+  }
+  @media (max-width:480px){
+    body{--fs:18px}
+    .mast-inner,.wrap,.foot-inner{padding-left:16px;padding-right:16px}
+  }
+</style>
+</head>
+<body id="top">
+<a class="skip" href="#noidung">Bỏ qua, tới phần đọc</a>
+
+<header class="masthead">
+  <div class="mast-inner">
+    <div class="fontctl">cỡ chữ <button id="fs-dec" title="nhỏ lại" aria-label="Chữ nhỏ lại">A−</button> <button id="fs-inc" title="to lên" aria-label="Chữ to lên">A+</button></div>
+    <h1 class="site-title"><a href="#top">Ghi ở bến</a></h1>
+    <p class="tagline">ghi chép với truyện — Lê Hoài Thương, viết khi nào rảnh thì viết</p>
+    <nav class="main" aria-label="Điều hướng chính">
+      <a href="#top">Trang chủ</a>
+      <a href="#truyen">Mùa nước rút</a>
+      <a href="#gioithieu">Giới thiệu</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+<main id="noidung">
+
+  <!-- ===== Lời mở ===== -->
+  <article class="post note">
+    <div class="meta">5 tháng 9, 2024</div>
+    <h2>Vài lời, trước khi đăng truyện</h2>
+    <p>Mấy năm trước ba tôi bệnh một trận, tôi về quê ở với ổng một thời gian. Lúc đó cực, mà giờ nghĩ lại tôi mừng là mình có về. Sau này rảnh rảnh tôi ngồi viết cái truyện này. Nói trước cho rõ: <em>không phải</em> chuyện nhà tôi. Người trong truyện tôi bịa, cái thị trấn cũng bịa. Có điều cái mùi, cái nắng, cái cảm giác ngồi đợi một người già trở mặt trời lặn — mấy cái đó thì tôi lấy từ thiệt.</p>
+    <p>Tôi không phải nhà văn nhà veo gì. Tôi viết cho đỡ nhớ, viết xong để trong máy thì uổng, nên đăng lên đây. Truyện hơi dài, tôi chia ra đăng làm nhiều kỳ — bữa nào rảnh thì đăng một chương, có khi cả tháng mới ra được một bài, ai theo dõi thì ráng kiên nhẫn giùm.</p>
+    <p>Truyện tên <strong>Mùa nước rút</strong>. Bắt đầu từ bên dưới. Cảm ơn ai ghé.</p>
+  </article>
+
+  <!-- ===== Bìa truyện ===== -->
+  <div class="booktop" id="truyen">
+    <p class="bt">MÙA NƯỚC RÚT</p>
+    <p class="bsub">truyện dài · đăng nhiều kỳ</p>
+    <p class="epi">Nước lớn rồi nước ròng, có ai giữ được con nước đâu mà buồn.
+      <cite>— một câu người ta hay nói ở chỗ tôi, không biết của ai</cite></p>
+    <p class="disc">Truyện này là chuyện bịa. Cái thị trấn không có trên bản đồ, những con người trong đó tôi nặn ra. Có chăng chỉ con nước là thật, năm hai ngàn mười chín nước về muộn và thấp, ai ở dưới đó năm đó đều nhớ.</p>
+  </div>
+
+  <!-- ===== PHẦN MỘT ===== -->
+  <div class="part-divider"><span>Phần một · Nước đói</span></div>
+
+  <!-- Ch1 -->
+  <article class="post" id="c1">
+    <div class="meta">8 tháng 9, 2024 · Mùa nước rút</div>
+    <h2><span class="num">Một</span>Bến xe</h2>
+    <p class="first">Xe đò xuống tới bến lúc mười một giờ trưa, trễ hơn giờ nhà xe hứa bốn mươi phút. Tôi cũng không buồn cự. Cự với ai.</p>
+    <p>Thằng lơ quăng cái túi của tôi xuống lề, túi rớt trúng vũng nước đọng cạnh bánh xe, nó nói gọn lỏn "tới rồi cô" rồi đu lên, xe rồ ga, để lại một đám khói đen với cái mùi dầu cháy mà không hiểu sao cả đời tôi cứ gắn nó với chuyện về quê. Mùi đó, với mùi mít chín ai bán đầu bến. Tôi xách túi lên, đáy túi ướt, nước nhỏ xuống dép.</p>
+    <p>Bến xe có ba cái ghế đá, một cái sứt. Quán cà phê võng Hương bên kia con lộ vẫn mở nhạc, Đàm Vĩnh Hưng, bài đó, cái bài mà năm giờ sáng người ta cũng nghe được vọng qua sông. Tôi nhớ hồi tôi còn ở nhà, chưa lên Cần Thơ, sáng nào cũng cái bài đó dựng tôi dậy. Mười mấy năm rồi. Chắc cái đĩa mòn riêng một đường rãnh.</p>
+    <p>Từ bến về nhà ba đi bộ chừng mười lăm phút, qua cây cầu xi măng người ta mới làm lại năm kia, qua chợ. Tôi không kêu xe ôm. Một là gần, hai là tôi tiếc mười lăm ngàn. Lên tới Cần Thơ làm kế toán cho công ty thủy sản mười mấy năm, ăn mặc coi cũng được, mà về tới đây là tôi tiếc từng đồng, tiếc cái kiểu của người lớn lên ở chỗ mà một ngàn cũng là tiền.</p>
+    <p>Con lộ mới tráng nhựa hồi 2017, đen bóng, nắng dội lên rát mặt. Hai bên còn mấy nhà lợp tôn cũ chưa chịu xây lại. Xe tải chở cát chạy qua, gió tạt một cái, bụi với hơi nóng. Tôi đi sát lề.</p>
+    <p>Tới chợ thì gặp bà Tư.</p>
+    <p>Bà Tư ở kế nhà ba, cách một cái hàng rào bông bụp. Bà đang ngồi lựa rau ở sạp con Hồng, thấy tôi, kêu lên như gặp người chết sống lại: "Ủa Hậu! Về hồi nào vậy con!" Tôi nói con mới xuống. Bà hỏi liền: "Ở chơi mấy bữa?" Tôi nói dạ con tính ở tới rằm tháng Tám rồi lên lại. Bà gật gù, mắt thì đã liếc cái túi của tôi coi tôi xách gì về. "Ba mày đỡ chưa? Hổm rày tao thấy ổng ra ngồi cửa hoài." Tôi nói dạ cũng đỡ. Tôi không muốn nói chuyện. Bà Tư mà bắt được chuyện là bà nói tới chiều, mà tôi thì đang đứng giữa nắng, đáy túi còn nhểu nước.</p>
+    <p>"Thôi con về nha bà Tư."</p>
+    <p>"Ừ về đi. Chiều rảnh qua tao chơi. Tao có chuyện này..."</p>
+    <p>Tôi đi luôn, làm bộ không nghe câu cuối. Lúc nào bà cũng "có chuyện này".</p>
+    <p class="brk">*　*　*</p>
+    <p>Nhà ba là nhà ba gian, lợp tôn, nền tráng xi măng đã nứt mấy đường. Trước nhà có khoảnh sân, sau lưng là vuông đất má hồi xưa trồng bồn bồn, giờ ba không làm nổi, cỏ lên tới gối. Cái cổng sắt han rỉ, đẩy nghe ken két. Con mực nằm dưới gốc xoài, nghe tiếng cổng, ngóc đầu lên, ngoắc đuôi hai cái rồi nằm xuống lại. Nó già rồi, lông quanh mõm bạc hết. Hồi tôi đi nó còn nhỏ xíu.</p>
+    <p>Ba ngồi ở cửa.</p>
+    <p>Ổng ngồi trên cái ghế gỗ kê sát bậc thềm, mặt quay ra sân mà mắt thì không nhìn cái gì hết. Một bên tay ổng để trên đùi, bàn tay hơi co, mấy ngón không duỗi thẳng được — di chứng cái lần đột quỵ hồi tháng Tư. Bác sĩ nói nhẹ, hồi phục được, tập riết rồi đi đứng lại bình thường. Nhẹ. Tôi nghe chữ đó mà tôi muốn hỏi lại bác sĩ chứ nặng là sao.</p>
+    <p>Thấy tôi, ổng không mừng. Ổng nhìn tôi từ đầu tới chân một cái rồi quay mặt đi.</p>
+    <p>"Về chi."</p>
+    <p>Hai chữ. Tôi đứng giữa sân, túi trên tay, nắng trên đầu. Tôi cũng không biết về chi. Thằng Út điện lên kêu chị về coi ba giùm em, em kẹt công chuyện dưới Bình Dương, em gửi tiền lên. Nó nói "gửi tiền lên" cái giọng nhẹ tênh, như tiền là cái có thể thay được người. Tôi nghe mà tôi tức, mà tôi cũng về. Tức rồi cũng về, đó là cái thân tôi.</p>
+    <p>"Con xuống coi ba mạnh giỏi." Tôi nói. Nói cho có nói.</p>
+    <p>Ba không trả lời. Ổng đưa cái tay lành lên gãi cổ. "Trưa rồi. Có gì ăn chưa." Ổng hỏi cái sân chứ không hỏi tôi.</p>
+    <p>Tôi xách túi vô nhà.</p>
+    <p class="brk">*　*　*</p>
+    <p>Trong nhà tối, mát hơn ngoài sân. Mùi nhà cũ — mùi tôi không tả được nhưng tôi nhận ra liền, mùi của vữa ẩm với khói nhang với một thứ gì đó nữa, thứ mùi của người già ở một mình. Bộ ván gõ giữa nhà, cái tủ thờ má, tấm hình má cười, nhang tàn cong xuống chưa ai gạt. Tôi đặt túi xuống ván, đi một vòng.</p>
+    <p>Bếp sau nhà, cái cà ràng ba không xài nữa, giờ ba nấu bằng cái bếp gas mini con Út mua. Một nồi cơm nguội còn nửa, đậy cái rổ. Một dĩa cá kho khô quắt, chắc từ hôm qua. Cái phích nước — phích cũ, vỏ nhựa đỏ đã ngả màu — tôi giở ra, sờ, còn âm ấm. Vậy là sáng ba có đun nước. Hoặc bà Tư đun giùm. Tôi không biết.</p>
+    <p>Tôi mở tủ chén. Đếm. Sáu cái chén, bốn cái lành, hai cái mẻ. Ba đôi đũa. Một cái tô lớn. Tôi không biết tôi đếm chi. Tôi hay đếm, đếm cho tay có việc làm trong lúc đầu không biết nghĩ gì. Lên công ty người ta giao tôi sổ sách là phải, tôi đếm được cả ngày không chán.</p>
+    <p>Tôi lấy nồi cơm nguội ra, định bắc lên hâm. Rồi tôi nghĩ thôi nấu nồi mới. Vo gạo. Gạo nhà ba để trong cái thùng sơn, hôi mùi thùng. Tôi vo, nước đục, vo lần hai. Ngoài kia ba vẫn ngồi, tôi nghe tiếng ghế ọ ẹ mỗi lần ổng cựa.</p>
+    <p>Cái va li tôi để ở góc nhà, chỗ chân tủ thờ. Tôi tính ở tới rằm tháng Tám. Còn hơn tháng. Tôi nhẩm: từ bữa nay tới rằm tháng Tám là bốn mươi mấy ngày, mỗi ngày tôi nghỉ làm là mất công, công ty cho nghỉ phép có hạn, hết phép thì trừ lương, trừ lương thì... thôi tính sau. Tôi hay tính tiền lúc không nên tính. Má hồi xưa nói cái tật đó tôi giống ba.</p>
+    <p>Ngoài sân ba ho một tràng. Ho xong ổng nói, không biết nói với ai:</p>
+    <p>"Năm nay nước chưa thấy về. Kỳ."</p>
+    <p>Tôi đứng ở bếp, tay còn trong thau gạo. Tôi không trả lời. Tôi đi mười mấy năm, nước về hay nước đói gì tôi đâu còn để ý. Ba nói xong cái câu đó thì thôi, không nói nữa. Ngoài sân nắng đứng bóng, cái ghế gỗ ọ ẹ một tiếng khi ba đổi thế ngồi, rồi im.</p>
+    <div class="post-foot"><a href="#top">↑ lên đầu</a><span class="sep">·</span><a href="#c2">Chương sau: Toa thuốc →</a></div>
+  </article>
+
+  <!-- Ch2 -->
+  <article class="post" id="c2">
+    <div class="meta">15 tháng 9, 2024 · Mùa nước rút</div>
+    <h2><span class="num">Hai</span>Toa thuốc</h2>
+    <p class="first">Cái toa bác sĩ ghi hồi tái khám lần trước, ba kẹp trong cuốn lịch treo tường, tờ tháng Sáu. Tôi gỡ ra coi.</p>
+    <p>Amlodipine 5mg, ngày một viên, sáng. Một thứ thuốc bao tử. Một thứ nữa tên dài tôi đọc không trôi, chữ bác sĩ như gà bới. Tôi ra tiệm thuốc tây đầu chợ — cái thị trấn này có đúng hai tiệm thuốc tây, một của cô Diệu dược sĩ, một của vợ chồng thầy giáo Đính về hưu bán thêm — tôi vô tiệm cô Diệu, đưa toa. Cô đọc cái rẹt, lấy thuốc, tính tiền. Tôi nhẩm theo trong đầu, sợ lộn.</p>
+    <p>Thuốc một tháng: hai trăm mười ngàn.</p>
+    <p>Tã thì tôi mua riêng. Ba không chịu mặc tã ban ngày, ổng nói ổng còn đi được, mà ban đêm thì phải. Tã người lớn cỡ L, hiệu nội, trăm hai một bịch mười miếng. Một đêm một miếng, có đêm ba dậy nhiều, ướt, phải thay, thành ra một đêm có khi hai miếng. Tính ra mỗi đêm mười mấy, có đêm hai mươi mấy ngàn tiền tã. Cộng thuốc. Cộng ăn uống. Cộng cái khoản tôi nghỉ làm.</p>
+    <p>Tôi ngồi ở bộ ván, lấy cuốn tập học trò cũ của thằng Út còn sót, xé một tờ, ghi. Tôi ghi quen tay rồi, ở công ty tôi ghi, về nhà tôi cũng ghi. Tã. Thuốc. Gạo. Cá. Tôi ghi từng khoản, cộng lại một ngày hết nhiêu. Thằng Út gửi lên hai triệu một tháng, nói chừng đó đủ ba ăn. Nó tính như người chưa từng ngồi tính. Hai triệu chia ba mươi ngày là sáu mươi mấy ngàn một ngày. Tã với thuốc mỗi ngày hơn hai chục. Còn lại nhiêu đó lo ăn hai miệng, lo điện, lo cái lần ba té phải đi chụp phim. Tôi ghi xuống cuối tờ giấy một con số, rồi tôi gạch đi, vì tôi biết ghi ra cũng vậy, ai trả. Tôi trả. Tôi gạch con số đó mạnh tay tới rách giấy.</p>
+    <p class="brk">*　*　*</p>
+    <p>Chiều tôi nấu canh chua. Không có cá linh — nước chưa về thì lấy đâu cá linh — tôi mua đại con cá lóc nhỏ ngoài chợ, nấu với me, với bạc hà, với mấy trái đậu bắp. Canh chua kiểu ở nhà, má hồi xưa nấu, tôi nấu theo trí nhớ.</p>
+    <p>Dọn ra. Ba ngồi vô, cầm đũa, nếm một muỗng.</p>
+    <p>"Lạt."</p>
+    <p>Tôi nếm lại. Lạt thiệt. Tôi nêm thiếu nước mắm. Mà tôi đâu có nói tôi nêm thiếu. Tôi nói:</p>
+    <p>"Ba ăn lạt cho khỏe. Bác sĩ dặn bớt mặn."</p>
+    <p>Ba để đũa xuống. Ổng không ăn. Ổng nói bác sĩ nào dặn, tao ăn mặn cả đời tao có sao đâu, rồi ổng đứng dậy, một tay vịn cạnh bàn, đi ra cửa ngồi. Tô canh còn nguyên.</p>
+    <p>Tôi ngồi ăn một mình. Ăn hết tô cơm, ăn luôn cái phần ba bỏ, tôi tiếc đồ ăn. Ăn xong tôi bưng tô canh ra sân, đổ cho con mực. Con mực liếm hai cái rồi ngước lên nhìn tôi, không ăn nữa. Chắc nó cũng chê lạt.</p>
+    <p>Tôi đứng đó với cái tô không, nhìn con mực bỏ đi nằm gốc xoài. Trời chạng vạng. Bên cà phê võng Hương lại nhạc. Tôi nghĩ cái câu "lạt" của ba, tôi nghĩ tôi nêm thiếu nước mắm thiệt, mà tôi không chịu nhận, tôi đổ thừa bác sĩ. Tôi nói dối ngon ơ. Tôi với ba ai cũng cứng đầu, hai cha con ngồi hai đầu cái nhà, không ai chịu ai, mà thật ra chỉ vì một muỗng nước mắm.</p>
+    <p>Tôi rửa tô. Không nói gì thêm.</p>
+    <p class="brk">*　*　*</p>
+    <p>Đêm đó mưa.</p>
+    <p>Mưa trên mái tôn ở đây không giống mưa ở đâu hết. Nó dội xuống ràn rạt, lớn tới mức hai người nằm gần nhau nói chuyện cũng phải la. Hồi nhỏ tôi sợ cái tiếng đó, tôi chui vô nằm với má. Giờ tôi nằm một mình ở cái buồng cũ, nghe mưa, không sợ nữa, mà cũng không ngủ được.</p>
+    <p>Mười một giờ khuya ba kêu. "Hậu. Hậu ơi."</p>
+    <p>Tôi dậy, qua buồng ba. Ổng muốn đi tiểu. Tôi dìu ổng ngồi dậy, đỡ ra cái bô tôi để sẵn ở góc — ban đêm ổng đi xa tới nhà cầu sau hè không nổi, trơn, tôi sợ té. Ổng vịn vai tôi đứng. Bàn tay ổng bấu vai tôi, bàn tay khô, mấy ngón cứng. Tôi đứng yên cho ổng vịn. Tôi nghe tiếng nước, tôi đếm trong đầu — đây là lần thứ nhất trong đêm. Có đêm tới ba bốn lần. Tôi đếm không phải để làm gì, đếm cho qua cái lúc đó, cái lúc tôi đứng đỡ cha tôi đi tiểu trong cái buồng tối, mưa trên đầu, và tôi không biết để cái mặt mình ở đâu.</p>
+    <p>Xong tôi dìu ổng nằm xuống, kéo cái mền đắp ngang bụng. Ổng nhắm mắt liền. Tôi đứng coi ổng một chút. Trong ánh đèn ngủ vàng vàng, mặt ba hóp, da chảy, cái miệng móm vì ban đêm ổng tháo hàm răng giả ra ngâm trong ly. Tôi nhớ hồi tôi nhỏ ba to con, đen trùi trũi, vác lúa một lần hai bao. Người ta nói thời gian, nói tuổi già, nói nghe nhẹ tênh. Tôi đứng đó tôi không nói được chữ nào.</p>
+    <p>Tôi về buồng. Mưa nhỏ lại rồi tạnh. Cái thứ im sau cơn mưa nó nặng hơn cả tiếng mưa. Tôi nằm nghe con mực ngoài sân trở mình, nghe con thằn lằn tróc lưỡi trên trần. Tôi nhẩm lại cái khoản tiền hồi chiều, tã thuốc gạo cá, cộng đi cộng lại cũng chừng đó, mà tôi cứ cộng, cộng cho tới lúc thiếp đi hồi nào không hay.</p>
+    <p>Sáng hôm sau ba dậy sớm, ngồi cửa. Như chưa có gì xảy ra. Như đêm qua không phải ổng kêu tên tôi hai lần trong mưa.</p>
+    <div class="post-foot"><a href="#c1">← Bến xe</a><span class="sep">·</span><a href="#top">↑ lên đầu</a><span class="sep">·</span><a href="#c3">Bà Tư →</a></div>
+  </article>
+
+  <!-- Ch3 -->
+  <article class="post" id="c3">
+    <div class="meta">24 tháng 9, 2024 · Mùa nước rút</div>
+    <h2><span class="num">Ba</span>Bà Tư</h2>
+    <p class="first">Bà Tư qua mượn cái thau.</p>
+    <p>Bà nói thau nhà bà bể, mai bà làm mắm, mượn đỡ. Tôi biết thau nhà bà không bể. Bà chỉ kiếm cớ qua. Người ở đây mượn đồ là một cách qua chơi, mượn cái thau cái rổ cây kéo, mượn là cái cớ, ngồi mới là cái chính. Tôi lấy cái thau nhôm đưa bà. Bà cầm, không về.</p>
+    <p>Bà ngồi xuống bộ ván, vén quần, gác một chân lên. "Ba mày ngủ rồi hả?" Dạ ngủ rồi. Mới bảy giờ mà ba đã vô mùng. Ổng ngủ sớm dậy sớm, cái nếp người làm sông nước, dù giờ ổng có làm gì đâu.</p>
+    <p>Tôi pha cho bà ly trà. Bà uống một hớp, đặt xuống, rồi bắt đầu.</p>
+    <p>Chuyện con dâu bà. Bà có thằng con trai lớn lấy vợ trên Sài Gòn, con dâu bà người thành phố, "cái thứ móng tay đỏ chót, nấu cơm khê, mà bày đặt chê đồ ăn dưới quê dơ". Bà kể cái lần con dâu về, không chịu ăn cá kho của bà, đòi ăn cái gì "lành mạnh", bà nói "lành mạnh cái con khỉ, tao đẻ thằng chồng mày bằng cá kho nước mắm chứ bằng cái gì". Bà kể con dâu để cháu nội bà bú sữa hộp chứ không cho bú mẹ, "vú thì bự mà tiếc con một bụng sữa". Bà kể tới đâu tôi ừ tới đó. Tôi ừ mà tôi không nghe. Tôi nghe khúc đầu rồi tôi để cái đầu tôi đi chỗ khác, cái này tôi giỏi, ngồi họp ở công ty tôi cũng vậy, gật gật mà đầu đi đâu.</p>
+    <p>Tám giờ. Bà chưa về. Chuyển qua chuyện khác — chuyện giá heo lên, chuyện ông Bảy giăng câu cuối xóm goá vợ mà tới giờ ở mình ên. "Đàn ông gì kỳ, để cái nhà lạnh tanh," bà nói. Rồi bà im một chút. Rồi bà nói thêm, nhỏ hơn: "Mà ở một mình riết cũng quen, chớ sao." Tôi ngó bà. Cái câu đó bà nói ông Bảy hay nói bà, tôi không biết. Bà nói như cái radio không có nút tắt, mà riêng cái câu đó bà nói khẽ.</p>
+    <p>Tám giờ rưỡi tôi ngáp. Tôi ngáp thiệt tình, không che. Bà cũng không hiểu ý. Hoặc hiểu mà bà mặc kệ. Tôi nghĩ bụng, cái bà này, chồng chết con đi hết, ở một mình, tối tới không có ai nói chuyện, qua đây nói cho đã cái miệng rồi về ngủ. Tôi nghĩ vậy xong tôi thấy tôi tệ. Rồi tôi nghĩ tiếp, tệ thì tệ, tôi buồn ngủ thiệt mà.</p>
+    <p>Chín giờ bà mới đứng dậy. Cầm cái thau. "Thôi tao về, mai tao trả thau." Bà sẽ không trả. Cái thau đó coi như mất. Năm sau mười năm sau tôi nhớ tới cái thau nhôm đó tôi vẫn nhớ là tôi cho bà Tư mượn cái đêm thứ ba tôi về, mà bà thì quên liền sáng hôm sau. Người ta là vậy. Cái mình nhớ đời thì người ta quên trong một giấc.</p>
+    <p>Bà ra tới cửa quay lại: "À. Con Hậu. Tao nói thiệt nghen, mày về lo cho ba mày vậy là phải. Chứ cái thằng Út..." Bà bỏ lửng. Bà liếc tôi coi tôi có muốn nghe tiếp không.</p>
+    <p>Tôi muốn nghe. Trời ơi tôi muốn nghe lắm. Mà tôi nói: "Dạ thôi bà Tư về nghỉ, khuya rồi."</p>
+    <p>Bà về. Tôi cài cổng. Đứng ngoài sân một chút. Tôi không muốn bà nói xấu thằng Út, vì đó là việc của tôi, tôi nói xấu nó được, người ngoài thì không. Mà tôi cũng tức thằng Út. Vô lý vậy đó, mà tôi giữ.</p>
+    <p class="brk">*　*　*</p>
+    <p>Thằng Út nhỏ hơn tôi sáu tuổi. Hồi nhỏ nó là thằng được cưng. Con trai mà, lại út. Má thương nó hơn, ba cũng thương nó hơn, cái gì ngon cũng phần nó. Tôi không trách má. Tôi trách thì tôi cũng vậy thôi, có con tôi chắc tôi cũng thiên vị đứa này đứa kia, người ta nói thương cho đều mà có ai thương đều được đâu.</p>
+    <p>Nó học hành cũng không tới đâu, rồi lên Bình Dương làm công ty, lấy vợ trên đó, có hai đứa con. Nó gửi tiền về đều, tháng nào cũng có, cái đó tôi công nhận. Mà nó không về. Ba đột quỵ tháng Tư, nó về được hai bữa rồi đi, nói công ty không cho nghỉ, nói vợ mới sanh đứa thứ hai. Lý do nào nghe cũng phải. Lý do nào cũng có thiệt. Mà cộng lại thì thành ra tôi ngồi đây, còn nó ở Bình Dương, mỗi tháng hai triệu, vậy là xong phần nó.</p>
+    <p>Tôi không lấy chồng được như nó. À không, tôi có lấy. Tôi có chồng trên Cần Thơ. Mà cái đó để sau, cái đó dài dòng.</p>
+    <p>Mà nói cho ngay, tôi ngồi đây không phải vì tôi thương ba hơn thằng Út. Tôi không chắc tôi thương ba. Có những bữa tôi nhìn ba tôi thấy thương đứt ruột, có những bữa tôi nhìn ba tôi chỉ thấy mệt, thấy cái gánh, thấy bốn mươi mấy ngày, thấy tiền. Tôi ngồi đây vì tôi là con gái, vì tôi không vợ con ràng buộc như thằng Út — ai cũng mặc nhiên vậy, kể cả tôi — vì cái phận đàn bà nó vậy, mẹ chăm cha, chị chăm em, rồi tới con gái chăm cha mẹ già, cái vòng đó tôi sanh ra đã ở trỏng rồi, giãy cũng không ra.</p>
+    <p class="brk">*　*　*</p>
+    <p>Khuya tôi nằm, nghe bên buồng ba thở. Ổng thở nặng, có lúc ngừng một nhịp làm tôi giật mình lắng tai, rồi ổng thở lại. Tôi nằm canh cái nhịp thở của ba như hồi xưa má canh nhịp thở của tôi lúc tôi sốt.</p>
+    <p>Tôi nhớ hồi chiều bà Tư nói "mày về lo cho ba mày vậy là phải". Phải. Ai cũng nói phải. Mà không ai hỏi tôi có muốn không. Tôi cũng không tự hỏi tôi. Hỏi chi. Hỏi rồi cũng vậy.</p>
+    <p>Tôi trở mình. Ngoài kia trời không mưa, mà cũng không có sao. Tháng Bảy rồi mà đồng còn nẻ, người ta đồn năm nay nước về trễ, nước đói. Tôi nằm nghĩ vu vơ tới con nước, nghĩ tới hồi nhỏ mùa nước nổi nước lên tới sân, tụi tôi lấy thau nhôm ra bơi, má đứng trên thềm la om sòm mà miệng má cười.</p>
+    <div class="post-foot"><a href="#c2">← Toa thuốc</a><span class="sep">·</span><a href="#top">↑ lên đầu</a><span class="sep">·</span><a href="#c4">Lên huyện →</a></div>
+  </article>
+
+  <!-- Ch4 -->
+  <article class="post" id="c4">
+    <div class="meta">6 tháng 10, 2024 · Mùa nước rút</div>
+    <h2><span class="num">Bốn</span>Lên huyện</h2>
+    <p class="preface">Lu bu quá, để lâu mới đăng tiếp được. Chương này hơi nặng, ai đang mệt thì để bữa khác đọc cũng được.</p>
+    <p class="first">Tới ngày tái khám. Bệnh viện huyện cách thị trấn hai mươi mấy cây, tôi mướn xe ông Sáu chạy dịch vụ, cái xe bốn chỗ cũ mèm, máy lạnh chạy phù phù. Hai trăm rưỡi một cua đi về. Tôi trả giá xuống hai trăm hai, ông Sáu càm ràm "bà tính kế toán có khác", rồi cũng chịu.</p>
+    <p>Đưa ba lên xe cực. Một tay ba còn yếu, tôi phải đỡ ổng cúi vô cửa xe, đầu ổng đụng khung cửa một cái, ổng gắt "từ từ chứ mày". Tôi cũng gắt lại trong bụng, mà ngoài miệng nói dạ con đỡ ba nè. Ngồi trong xe ba im, nhìn ra ngoài, ruộng nẻ chạy ngược. Tôi cầm cái túi đựng sổ khám, toa thuốc, thẻ bảo hiểm, với chai nước. Tôi kiểm lại ba lần coi đủ giấy chưa. Thiếu giấy là phải về, về là mất nửa ngày, mất nửa ngày là... thôi.</p>
+    <p>Tới nơi tám giờ. Bệnh viện huyện sáng thứ Hai đông như chợ. Người ta ngồi chật băng ghế, nằm cả ra hành lang, mùi cồn mùi thuốc mùi người. Tôi dìu ba vô, lấy số. Số 67. Trên bảng điện tử đang gọi số 22.</p>
+    <p>Bốn mươi lăm cái số.</p>
+    <p>Tôi tính nhẩm, mỗi người chừng năm bảy phút, bốn mươi lăm số là... ba bốn tiếng. Tôi không nói ra. Tôi kiếm chỗ cho ba ngồi, một góc băng ghế, dẹp cái túi ai để đó qua bên. Ba ngồi, hai tay để trên gối, lưng còng, mắt lờ đờ nhìn cái bảng số. Tôi đứng kế, dựa tường.</p>
+    <p>Tôi ghét chờ. Không phải ghét mất thời gian — thời gian tôi đâu có làm gì — tôi ghét cái cảm giác mình ngồi đó mà không kiểm soát được cái gì hết, số nó nhảy theo ý nó, mình chờ theo ý nó. Ở công ty tôi sắp xếp được, cái gì cũng có hàng có lối. Ở đây tôi chỉ là cái số 67.</p>
+    <p class="brk">*　*　*</p>
+    <p>Mười giờ rưỡi. Số mới tới 51. Ba bắt đầu cựa quựa. Ổng nói nhỏ: "Tao mắc tiểu."</p>
+    <p>Nhà vệ sinh ở cuối hành lang. Tôi nhìn cái bảng số — 51 — nếu dẫn ba đi, lỡ tới số 67 mình không có đó, người ta bỏ qua, mình phải lấy số lại. Tôi tính cái đó trong đầu, một giây thôi, mà tôi tính. Rồi tôi nói ba ráng chút xíu nha, sắp tới mình rồi. Ổng "ừ".</p>
+    <p>Năm phút sau ổng nói lại, gấp hơn: "Hậu, tao mắc tiểu."</p>
+    <p>"Ba ráng chút. Tới số mình rồi đi liền."</p>
+    <p>Tôi không biết tại sao tôi nói vậy. Tôi biết ba già, ba bệnh, ba mắc là phải đi liền. Mà cái đầu kế toán của tôi nó tính cái số 67, nó sợ mất lượt, nó sợ chờ thêm ba tiếng nữa. Tôi để cái số 67 lớn hơn cha tôi.</p>
+    <p>Rồi tôi thấy ba im. Ổng ngồi im, mặt cúi xuống. Một lúc tôi mới thấy ướt. Ướt loang ra quần ba, xuống băng ghế, nhỏ giọt xuống nền gạch. Ba tiểu ra quần. Giữa cái hành lang đông nghẹt người đó.</p>
+    <p>Có người nhìn. Có người làm lơ, cái làm lơ còn khó chịu hơn cái nhìn. Một bà kế bên kéo cái giỏ của bả xích ra xa.</p>
+    <p>Ba không nói gì. Ổng ngồi đó, hai tay vẫn để trên gối, lưng còng, mắt nhìn xuống vũng nước dưới chân mình. Cha tôi, người hồi xưa vác lúa một lần hai bao, người mà cả xóm kêu ông Hai ghe, ngồi đó, ướt, giữa đám đông, không dám ngẩng đầu.</p>
+    <p>Tôi đứng chết trân một giây. Rồi tôi làm cái việc phải làm — tôi lấy trong túi ra cái áo mưa tiện lợi tôi luôn thủ sẵn, choàng ngang đùi ba che lại, tôi đỡ ba đứng dậy, tôi nói lớn, tôi cố nói lớn cho cái giọng nó bình thường: "Đi ba, mình đi thay đồ." Như thể đây là chuyện thường. Như thể tôi không phải người vừa bắt ba ráng.</p>
+    <p>Tôi dìu ba đi cuối hành lang, đi chậm, nước còn nhỏ. Tôi không dám nhìn ai. Mà tôi cũng tức — tôi tức cái gì tôi không biết, tức cái bệnh viện, tức cái số 67, tức thằng Út ở Bình Dương, tức luôn cái thân tôi đứng đây. Mà cái tôi tức nhất, sâu trong bụng, cái tôi không dám nhìn thẳng, là tôi tức chính tôi đã nói "ba ráng chút".</p>
+    <p class="brk">*　*　*</p>
+    <p>Tôi thay đồ cho ba trong cái nhà vệ sinh chật. Tôi mang theo quần dự phòng — tôi luôn mang theo — mà bữa nay cái sự phòng hờ của tôi nó không cứu được cái gì. Tôi lau người ba bằng khăn giấy ướt, mặc quần mới. Suốt lúc đó ba không nói. Tôi cũng không nói. Cái im đó tôi nhớ tới giờ.</p>
+    <p>Xong xuôi tôi dìu ba ra, lấy lại số. 67 qua lâu rồi, tôi bốc số mới, 89. Lại chờ. Tôi ngồi xuống kế ba. Lần này tôi không đứng dựa tường nữa, tôi ngồi sát ba. Tôi không biết làm gì, tôi đưa chai nước cho ba uống. Ba lắc đầu. Tôi để chai nước xuống.</p>
+    <p>Một hồi, ba nói, nhỏ xíu, nhìn ra trước mặt: "Về."</p>
+    <p>"Khám xong rồi về ba."</p>
+    <p>"Về. Tao không khám nữa."</p>
+    <p>Tôi định cãi. Khám rồi mới có thuốc, không khám lấy gì uống. Tôi mở miệng định nói cái lý đó — tôi luôn có cái lý — rồi tôi nhìn ba, nhìn cái lưng còng, cái mặt cúi, tôi nuốt cái lý xuống. Tôi nói: "Ừ. Về."</p>
+    <p>Tôi kêu ông Sáu vô rước sớm, mất thêm năm chục tiền chờ. Tôi không trả giá. Lần đó tôi không trả giá.</p>
+    <p>Trên xe về ba ngủ gục, đầu ngả vô vai tôi. Tôi ngồi yên cho ba dựa, tay tê tôi cũng không dám nhúc nhích. Ruộng nẻ chạy ngược ngoài cửa kính. Tôi nhìn ra, tôi nghĩ tới cái vũng nước dưới chân ba hồi nãy, tôi nghĩ tới năm phút tôi bắt ba ráng, và tôi biết cái năm phút đó tôi sẽ nhớ lâu hơn ba nhớ. Ba chắc quên rồi. Hoặc ba nhớ mà ba không nói. Tôi thì tôi không quên được.</p>
+    <p>Tôi không khóc. Tôi không phải người khóc dễ. Tôi chỉ ngồi đó, để cha tôi dựa vào vai, và đếm mấy cây số còn lại về tới nhà.</p>
+    <div class="post-foot"><a href="#c3">← Bà Tư</a><span class="sep">·</span><a href="#top">↑ lên đầu</a><span class="sep">·</span><a href="#c5">Nước chưa lên →</a></div>
+  </article>
+
+  <!-- Ch5 -->
+  <article class="post" id="c5">
+    <div class="meta">13 tháng 10, 2024 · Mùa nước rút</div>
+    <h2><span class="num">Năm</span>Nước chưa lên</h2>
+    <p class="first">Qua tháng Tám mà nước chưa lên.</p>
+    <p>Mọi năm cữ này ruộng ngoài kia đã xăm xắp, người ta chống xuồng đi thăm lưới, bông điên điển vàng rực mấy bờ. Năm nay đồng còn nẻ chân chim. Đài huyện nói lũ về muộn, nói thượng nguồn ít mưa, nói mấy cái đập bên kia biên giới giữ nước. Người trong xóm thì nói gọn: nước đói. Hai chữ đó tôi nghe riết thành quen. Nước đói. Nghe như con người ta đói chứ không phải con nước.</p>
+    <p>Chú Bảy giăng câu cuối xóm — cái ông goá vợ mà bà Tư hay nói ra nói vô — sáng nào cũng vác cần ra mé sông ngồi, về tay không. Chú ghé ngang nhà, đứng ngoài rào nói với ba mấy câu. "Anh Hai khỏe hông." Ba ừ. "Năm nay coi bộ trớt quớt anh ơi, con nước nó không thèm về." Ba ừ. Hai ông già nói chuyện con nước, mỗi người vài câu, rồi thôi, rồi chú Bảy đi. Vậy mà bữa nào chú không ghé là ba ngóng. Ổng không nói ổng ngóng. Mà tới trưa không thấy chú, ba hỏi trổng: "Thằng Bảy bữa nay đâu ta." Tôi nói chắc chú đi đám. Ba "ừ", mà cái mặt ổng tiu nghỉu.</p>
+    <p class="brk">*　*　*</p>
+    <p>Ba bắt đầu hay ra ngồi nhìn cái vuông bồn bồn sau nhà.</p>
+    <p>Vuông đất đó hồi má còn sống má trồng bồn bồn, mùa nước nhổ lên làm dưa, bán cũng được đồng ra đồng vô. Má mất, ba còn làm được vài năm, rồi đột quỵ, rồi bỏ. Cỏ lên. Giờ ba ra ngồi cái ghế đẩu ở hàng ba sau, nhìn ra cái vuông cỏ đó, ngồi cả buổi. Tôi không biết ba nhìn gì. Cỏ thì có gì mà nhìn. Hay ba nhìn cái hồi nó chưa thành cỏ. Tôi không hỏi. Tôi sợ hỏi trúng cái chỗ làm ba buồn, mà tôi cũng sợ hỏi rồi ba nói ra, tôi không biết đỡ làm sao.</p>
+    <p>Có bữa tôi đem cho ba ly trà, để xuống kế ghế, ba không quay đầu, nói: "Hồi đó chỗ này má mày trồng bồn bồn." Tôi nói dạ con biết. "Bồn bồn nó ưa nước. Năm nào nước lớn nó lên đẹp." Tôi nói dạ. Ba im một hồi rồi nói: "Năm nay nước không về, có trồng cũng chết." Rồi ba thôi, không nói nữa. Tôi đứng sau lưng ba một chút rồi đi vô. Tôi nghĩ ba đâu có nói chuyện bồn bồn. Mà tôi cũng không biết ba nói chuyện gì. Người già nói một câu, mình hiểu một câu, còn cái nằm dưới câu đó thì mình đoán, đoán trúng đoán trật cũng không ai nói cho mình biết.</p>
+    <p class="brk">*　*　*</p>
+    <p>Tôi ở được hơn tháng rồi. Cái va li vẫn trong góc, chỗ chân tủ thờ. Tôi định bụng tới rằm tháng Tám về Cần Thơ một bữa, ghé công ty, ghé... ghé cái nhà tôi với chồng tôi, dòm coi nó ra sao, rồi xuống lại. Tôi tính vậy. Tính thì tính.</p>
+    <p>Một buổi trưa tháng Tám, nắng gắt, tôi ở dưới bếp vo gạo nấu cơm. Ba ngồi ngoài hàng ba sau, nhìn vuông bồn bồn như mọi bữa. Cả nhà im, chỉ có tiếng nước tôi vo gạo, tiếng con mực thở dưới gầm ván, tiếng radio nhà ai xa xa.</p>
+    <p>Tự nhiên ba hỏi, không quay đầu:</p>
+    <p>"Bây ăn cơm chưa."</p>
+    <p>Tôi đứng khựng ở bếp, tay còn trong thau gạo.</p>
+    <p>Nửa tháng nay đó là câu tử tế đầu tiên ba nói với tôi. Trước giờ ba nói với tôi toàn là biểu, là gắt, là chê — lạt, mặn, từ từ chứ mày, về chi. Còn câu này — bây ăn cơm chưa — cái câu mà hồi xưa người ta hỏi nhau đầu ngõ, cái câu thay cho thương, cái câu mà người miền dưới hỏi không phải để biết mình ăn chưa, hỏi là để hỏi thôi, để cho có người này người kia — ba hỏi tôi câu đó.</p>
+    <p>Tôi định trả lời. Dạ con chưa, con nấu xong ăn luôn. Câu đó dễ ợt. Mà cái cổ tôi nó nghẹn lại, nghẹn cứng, tôi nói không ra. Tôi sợ tôi mở miệng ra là cái giọng nó bể. Tôi không muốn ba nghe cái giọng tôi bể. Nên tôi làm thinh. Tôi giả bộ đang lo vo gạo, tôi vo, nước chảy qua kẽ tay, đục rồi trong, mà tôi cứ vo, vo lâu hơn cần thiết, vo cho cái cổ nó hết nghẹn.</p>
+    <p>Ba ngồi ngoài đó, chắc tưởng tôi không nghe. Ba không hỏi lại.</p>
+    <p>Tôi vo gạo xong, đổ nước, bắc lên bếp. Tay tôi run nhẹ. Tôi đứng nhìn nồi cơm một hồi cho bình thường lại rồi mới dám đi ra sau, đứng kế ba.</p>
+    <p>"Dạ con nấu cơm xong rồi ba. Chút ăn." Tôi nói được rồi, giọng cũng được rồi.</p>
+    <p>Ba "ừ". Ổng vẫn nhìn ra vuông bồn bồn. Như chưa hề hỏi tôi câu gì.</p>
+    <p>Mà tôi biết ba có hỏi. Tôi nghe rõ ràng. Bây ăn cơm chưa. Tôi giữ cái câu đó, tôi đem nó về Cần Thơ, tôi đem nó đi tới giờ.</p>
+    <p>Chiều đó tôi không về rằm tháng Tám nữa. Tôi tự nói với mình là tại nước chưa lên, ở thêm coi nước. Nói vậy chứ nước thì liên quan gì tới tôi. Tôi chỉ chưa muốn đi. Cái va li vẫn nằm im trong góc, tôi đẩy nó sát vô chân tủ thêm chút nữa, cho nó khuất.</p>
+    <div class="post-foot"><a href="#c4">← Lên huyện</a><span class="sep">·</span><a href="#top">↑ lên đầu</a><span class="sep">·</span><a href="#c6">Cái máy may →</a></div>
+  </article>
+
+  <!-- ===== PHẦN HAI ===== -->
+  <div class="part-divider"><span>Phần hai · Nước lên</span></div>
+
+  <!-- Ch6 -->
+  <article class="post" id="c6">
+    <div class="meta">27 tháng 10, 2024 · Mùa nước rút</div>
+    <h2><span class="num">Sáu</span>Cái máy may</h2>
+    <p class="first">Cái máy may của má để trong buồng trong, phủ tấm vải dầu, lâu không ai đụng. Máy Singer chân đạp, đầu máy đen, có hoa văn vàng đã tróc, cái bàn gỗ, cái bàn đạp gang. Hồi má còn sống má may đồ cho cả xóm, may gia công ban đêm, tiếng máy lạch cạch lạch cạch là cái đồng hồ của nhà tôi, tôi ngủ theo cái tiếng đó, tôi thức dậy nửa đêm còn nghe cái tiếng đó, má may tới khuya lơ khuya lắc.</p>
+    <p>Má mất tám năm rồi. Cái máy đứng đó tám năm.</p>
+    <p>Tôi tính bán. Tôi nói thiệt, tôi tính bán nó. Nhà chật, cái máy chiếm một góc, để không, mối mọt. Có người lên đời chơi đồ cổ, mấy cái máy Singer cũ vầy bán cũng được giá, tôi coi trên Chợ Tốt, có cái rao ba bốn triệu. Tôi tính, ba bốn triệu là mấy tháng tã thuốc của ba. Tôi tính cái đó liền, cái gì tôi cũng quy ra được mấy tháng tã thuốc.</p>
+    <p>Tôi nói với ba. Tôi nói ba ơi cái máy của má để không uổng, hay con kêu người ta lại coi, bán được giá mình để dành lo cho ba.</p>
+    <p>Ba đang ngồi, nghe vậy, quay phắt lại. Cái mặt ba đổi. Ba nói, gằn từng tiếng: "Không bán."</p>
+    <p>"Để không cũng hư ba à."</p>
+    <p>"Tao nói không bán là không bán." Giọng ba lớn, cái giọng hồi xưa, cái giọng ông Hai ghe. "Đụng vô tao từ mày."</p>
+    <p>Tôi nín. Tôi không hiểu. Một cái máy may cũ, ba có may vá gì đâu, để đó tám năm có ai đụng đâu, mà tôi đụng tới là ba nổi như vậy. Tôi định cãi, định nói cái lý của tôi — để không thì phí, bán đi thì có tiền. Mà tôi nhìn cái mặt ba, tôi thôi. Tôi nói dạ thôi con không bán, ba đừng giận. Ba quay đi. Cả buổi chiều đó ba không nói với tôi câu nào.</p>
+    <p class="brk">*　*　*</p>
+    <p>Tối, ba ngủ rồi, tôi lại gần cái máy.</p>
+    <p>Tôi không định làm gì. Tôi chỉ giở tấm vải dầu ra, lau bụi. Cái đầu máy lạnh, đen. Tôi quay thử cái bánh xe, nó còn quay, còn trơn, ai đó vẫn tra dầu — ba. Ba tra dầu cái máy này. Cái tay ba run vầy mà ba vẫn tra dầu cho cái máy của má, tám năm.</p>
+    <p>Tôi kéo cái hộc bàn máy ra. Hộc đầy đồ lặt vặt của má — mấy cuộn chỉ, cái gối cắm kim đã cứng, mấy con nút áo rời, cái kéo cắt vải lưỡi đã sét, một cây thước dây vải số đã mờ. Đồ nghề của má. Tôi lục, không kiếm gì, lục cho biết.</p>
+    <p>Dưới đáy hộc, kẹp bên dưới một xấp vải vụn, có cuốn sổ.</p>
+    <p>Cuốn sổ nhỏ, bìa các-tông, gáy đã long. Tôi mở ra. Chữ má. Chữ má xấu, nguệch ngoạc, sai chính tả — má học có tới lớp ba — mà tôi nhận ra liền. Trong sổ má ghi nợ. Ai vay má bao nhiêu, ngày nào, trả chưa. "Chị Năm 50, trả rồi." "Cô Bảy hàng xáo 120, còn 40." "Thằng Tốt 30 — thôi." Cái chữ "thôi" đó, tôi đoán là má xí xóa, người ta nghèo quá má cho luôn. Cả cuốn sổ là vậy, mấy chục cái tên, mấy chục con số, ngày tháng, trả rồi, còn, thôi.</p>
+    <p>Tôi ngồi bệt xuống đất, cầm cuốn sổ, đọc từng dòng.</p>
+    <p>Má đếm. Má cũng đếm. Cả đời tôi tưởng tôi đếm là giống ba — chính má nói vậy, "cái tật tính tiền đó mày giống ba" — mà má, người nói câu đó, hoá ra má cũng ngồi đếm, đêm đêm, sau khi may xong đồ gia công, má ghi ai nợ bao nhiêu vô cuốn sổ này, giấu dưới đáy hộc, không cho ai biết. Má đếm mà má giấu. Còn tôi đếm tôi để lồ lộ, tôi ghi vô tờ giấy giữa nhà.</p>
+    <p>Tôi lật tới trang cuối. Trang cuối không phải nợ. Trang cuối má ghi một dòng, chữ run hơn, chắc viết hồi má đã yếu: "Tiền để dành cho con Hậu lúc nó đẻ." Rồi một con số. Rồi gạch ngang. Không ghi gì thêm.</p>
+    <p>Tôi đẻ. Má để dành tiền cho tôi lúc tôi đẻ.</p>
+    <p>Tôi không có con. Tôi lấy chồng tám năm, không có con, đi khám, người ta nói tại tôi. Má mất mà tôi chưa đẻ. Cái khoản tiền má để dành đó, má gạch ngang hồi nào, tôi không biết. Gạch hồi má hết hy vọng tôi đẻ? Hay gạch hồi má cần tiền xài, lấy ra xài, rồi gạch? Tôi không biết. Tôi sẽ không bao giờ biết. Má không còn để tôi hỏi.</p>
+    <p>Tôi ngồi đó lâu. Tôi không khóc — tôi nói rồi, tôi không phải người khóc dễ — tôi chỉ ngồi đó, cầm cuốn sổ, đọc đi đọc lại cái dòng đó, "tiền để dành cho con Hậu lúc nó đẻ", đọc tới mức cái dòng chữ nó nhoè ra, mà mắt tôi ráo, lạ vậy đó, lòng thì nhoè mà mắt thì ráo.</p>
+    <p class="brk">*　*　*</p>
+    <p>Tôi để cuốn sổ lại chỗ cũ, dưới đáy hộc, dưới xấp vải vụn. Tôi không đem khoe ba. Cái sổ này má giấu, tôi giấu giùm má.</p>
+    <p>Lúc xếp lại đồ trong hộc, tay tôi đụng một cái gì cứng, kẹt ở góc trong. Tôi móc ra. Một cái đồng hồ đeo tay. Đồng hồ đàn ông, mặt vuông, dây da đã mục gãy, kim đứng ở mười giờ mười hai phút, đứng vầy chắc lâu lắm rồi. Đồng hồ hiệu gì chữ nước ngoài tôi không biết. Cũ, mà coi bộ hồi xưa là đồ xịn.</p>
+    <p>Tôi cầm cái đồng hồ, tôi nghĩ. Đồng hồ này của ai. Không phải của ba — ba có cái đồng hồ Liên Xô tôi biết mặt, ba đeo tới giờ, để trên đầu giường. Cái này lạ. Đàn ông. Trong hộc đồ của má.</p>
+    <p>Tôi ngồi với cái đồng hồ trong tay, tôi muốn xếp nó vô đâu đó trong đầu, cái đầu tôi nó thích xếp, cái gì cũng phải có một ô để bỏ vô. Mà cái đồng hồ này tôi không có ô nào để bỏ. Của ai. Sao ở đây. Má quen ai. Hồi nào.</p>
+    <p>Tôi nghĩ một hồi rồi tôi thôi. Có những cái mình không xếp được thì đừng xếp. Tôi để cái đồng hồ lại chỗ cũ, góc trong hộc, đẩy vô. Tôi đóng hộc lại. Phủ tấm vải dầu lên cái máy.</p>
+    <p>Sáng hôm sau ba dậy, thấy cái máy đã lau bụi, tấm vải dầu xếp lại ngay ngắn. Ba nhìn cái máy một hồi. Ba không nói gì. Tôi cũng không nói gì. Hai cha con, mỗi người giữ một thứ của má mà không nói ra.</p>
+    <div class="post-foot"><a href="#c5">← Nước chưa lên</a><span class="sep">·</span><a href="#top">↑ lên đầu</a><span class="sep">·</span><a href="#c7">Rằm →</a></div>
+  </article>
+
+  <!-- Ch7 -->
+  <article class="post" id="c7">
+    <div class="meta">3 tháng 11, 2024 · Mùa nước rút</div>
+    <h2><span class="num">Bảy</span>Rằm</h2>
+    <p class="first">Rằm tháng Tám. Cái ngày tôi tính về Cần Thơ. Tôi không về.</p>
+    <p>Chiều rằm trẻ con trong xóm xách lồng đèn đi rồng rắn ngoài lộ. Lồng đèn bây giờ toàn đồ nhựa Trung Quốc, có pin, chớp xanh chớp đỏ, hát nhạc tin tin. Không còn cái lồng đèn giấy kiếng hồi xưa, cái lồng đèn ông sao mà gió tạt một cái là cháy, khóc cả buổi. Tụi nhỏ chạy qua chạy lại, la hét, ngoài quán cà phê võng Hương người ta bày bàn nhậu, có mồi có bia, rằm mà.</p>
+    <p>Tôi mua một cái bánh trung thu. Một cái thôi. Bánh thập cẩm, tiệm bánh ngoài chợ, bốn chục ngàn, mắc. Tôi mua một cái vì nhà có hai cha con, mà ba kiêng ngọt, bác sĩ dặn, ba ăn được mấy miếng. Tôi mua một cái để cắt ra, cúng má một miếng, ba một miếng, tôi phần còn lại.</p>
+    <p>Tối tôi bày lên bàn thờ má. Một cái bánh cắt làm tư, một bình trà, mấy trái cây. Tôi thắp nhang. Khói nhang bay lên tấm hình má. Má trong hình còn trẻ hơn tôi bây giờ. Tôi nhìn má, tôi nói trong bụng, má ơi rằm, con với ba ăn bánh nha má. Tôi không quen khấn ra tiếng. Tôi khấn trong bụng, như tính nhẩm.</p>
+    <p>Ba ngồi ở ván. Tôi đem cho ba một miếng bánh, để trong cái dĩa. Ba nhìn miếng bánh.</p>
+    <p>"Bác sĩ dặn ba kiêng ngọt mà ba ăn một miếng cho có rằm." Tôi nói.</p>
+    <p>Ba cầm miếng bánh, ăn. Ăn chậm, vì hàm răng giả. Ăn hết một miếng. Rồi ba ngồi, nhìn ra cửa, ngoài đó tụi nhỏ còn rồng rắn, lồng đèn chớp.</p>
+    <p>Ba nói, tự nhiên: "Hồi mày nhỏ, mày đòi lồng đèn ông sao. Tao không có tiền mua."</p>
+    <p>Tôi ngồi xuống ván, kế ba.</p>
+    <p>"Tao lấy cái lon sữa bò, đục lỗ, xỏ cây làm cái lồng đèn lon. Bỏ cây đèn cầy vô. Mày đẩy đi long cong ngoài sân." Ba nói, mắt vẫn nhìn ra cửa. "Mày khóc. Mày nói mày không thèm lồng đèn lon, mày thèm lồng đèn ông sao như con Hồng con Đẹp."</p>
+    <p>Tôi không nhớ cái này. Tôi thiệt tình không nhớ. Tôi không nhớ cái lồng đèn lon, không nhớ tôi khóc, không nhớ tôi đòi lồng đèn ông sao. Mà ba nhớ. Ba nhớ tới cái lon sữa bò, nhớ tôi khóc, nhớ tên con Hồng con Đẹp. Cái chuyện mấy chục năm, cái chuyện mà tôi — người trong cuộc — quên sạch, ba giữ.</p>
+    <p>"Con không nhớ ba à." Tôi nói thiệt.</p>
+    <p>Ba "ờ". Ba không buồn vì tôi không nhớ. Ba nói tiếp, giọng đều: "Mày con nít mà. Con nít ai nhớ. Tao nhớ là đủ rồi."</p>
+    <p>Tao nhớ là đủ rồi.</p>
+    <p>Tôi ngồi đó, miếng bánh trong tay chưa ăn. Tôi nghĩ tới cuốn sổ của má dưới đáy hộc máy may. Tôi nghĩ ba với cái lon sữa bò. Tôi không nói gì hết. Ngoài lộ, tụi nhỏ còn rồng rắn, lồng đèn chớp xanh chớp đỏ.</p>
+    <p class="brk">*　*　*</p>
+    <p>Khuya, dọn bàn thờ má xuống, tôi ăn miếng bánh phần tôi. Bánh ngọt gắt, cứng, nhân thập cẩm mỡ với mứt, cái thứ bánh tôi không ưa. Tôi ăn hết. Tôi tiếc, bốn chục một cái.</p>
+    <p>Trăng rằm lên cao, sáng cả sân. Con mực nằm dưới gốc xoài, ngẩng đầu lên nhìn trăng một cái rồi nằm xuống. Ngoài kia tụi nhỏ về hết rồi, lộ vắng, chỉ còn quán cà phê võng Hương mấy ông nhậu khuya, cười nói, có ông hát vọng cổ một câu rồi quên lời, cười rần.</p>
+    <p>Tôi đứng ngoài sân, nhìn trăng. Tôi không nghĩ gì sâu xa. Tôi chỉ đứng đó, no bụng bánh, hơi buồn nôn vì ngọt. Tôi nghĩ tới chồng tôi trên Cần Thơ, không biết giờ này ảnh làm gì, rằm có ai nấu cho ăn không. Tôi nghĩ một chút rồi thôi. Cái đó để sau.</p>
+    <p>Cái va li vẫn trong góc. Rằm tháng Tám qua rồi, tôi vẫn ở đây.</p>
+    <div class="post-foot"><a href="#c6">← Cái máy may</a><span class="sep">·</span><a href="#top">↑ lên đầu</a><span class="sep">·</span><a href="#c8">Đêm ba sốt →</a></div>
+  </article>
+
+  <!-- Ch8 -->
+  <article class="post" id="c8">
+    <div class="meta">12 tháng 11, 2024 · Mùa nước rút</div>
+    <h2><span class="num">Tám</span>Đêm ba sốt</h2>
+    <p class="first">Nửa đêm tôi nghe ba rên. Không phải kêu, rên. Tôi qua, sờ trán ba, nóng ran. Ba sốt.</p>
+    <p>Tôi không có cặp nhiệt. Nhà quê, ai có cặp nhiệt. Tôi sờ tay, sờ trán, ước chừng. Nóng lắm. Mặt ba đỏ, môi khô, ba mê mê, mắt nhắm mà miệng lảm nhảm cái gì không rõ. Tôi hoảng. Tôi nói thiệt, lúc đó tôi hoảng. Tôi nghĩ tới cái chữ "đột quỵ", tôi nghĩ tới cái lần tháng Tư, tôi nghĩ ba mà có chuyện ban đêm vầy, một mình tôi, biết làm sao.</p>
+    <p>Tôi lấy khăn nhúng nước, lau trán, lau cổ, lau nách ba. Tôi nhớ hồi nhỏ tôi sốt má làm vậy. Lau người cho hạ nhiệt. Tôi đắp khăn lên trán ba, một hồi khăn nóng, tôi nhúng lại, đắp lại. Tôi cho ba uống thuốc hạ sốt — tôi có thủ sẵn vỉ paracetamol, tôi luôn thủ — bẻ một viên, đút ba uống với nước. Ba uống, sặc, ho. Tôi đỡ ba ngồi dậy chút cho khỏi sặc.</p>
+    <p>Tôi cởi áo ba ra cho mát. Áo ba ướt mồ hôi.</p>
+    <p>Lần đầu tiên tôi thấy hết cái thân ba. Mấy chục năm rồi tôi đâu có thấy. Con gái lớn, ba cũng già, ai thấy thân ai. Bây giờ trong ánh đèn ngủ vàng vàng, tôi thấy. Cái lưng ba gầy, xương sống lồi từng đốt. Da ba nhão, chảy, đồi mồi. Hai cái vai từng vác lúa giờ tóp lại. Cái bụng lép. Và bên hông phải, một cái sẹo.</p>
+    <p>Cái sẹo dài, cũ, mép đã mờ thành một đường trắng. Tôi biết cái sẹo này. Mổ ruột thừa. Hồi tôi còn nhỏ xíu, ba đau bụng dữ, người ta chở ba lên huyện cấp cứu, mổ. Tôi nhớ man mán má bồng tôi đứng ngoài, má khóc. Tôi không nhớ rõ, tôi còn nhỏ quá. Mà cái sẹo thì còn đây, trên thân ba, mấy chục năm.</p>
+    <p>Tôi lau tới chỗ cái sẹo, tôi khựng tay một chút. Tự nhiên tôi nhớ má khóc. Tôi nhớ cái cảm giác má bồng tôi chặt quá, tôi ngộp. Hồi đó ba còn trẻ, ba suýt chết vì cái ruột thừa, má sợ mất ba. Bây giờ ba già, ba nằm đây, sốt, và người lau cho ba là tôi, đứa con gái hồi đó còn được bồng. Má đi rồi.</p>
+    <p>Mà thiệt ra lúc đó tôi đâu có rảnh mà nghĩ ngợi. Lúc đó tôi lo lau cho ba hạ sốt. Trong đầu tôi chỉ có: nóng quá, lau đi, thuốc ngấm chưa, có cần kêu xe lên huyện không, mấy giờ rồi, tới sáng còn lâu không.</p>
+    <p class="brk">*　*　*</p>
+    <p>Gần sáng ba hạ sốt. Mồ hôi vã ra, áo ướt, mà người mát lại. Ba thở đều. Tôi thay áo khô cho ba, kéo mền đắp. Ba ngủ.</p>
+    <p>Tôi ngồi bệt dưới đất, dựa vô vạc giường, mệt rã. Tôi không dám ngủ, sợ ba sốt lại. Tôi ngồi canh. Ngoài kia trời bắt đầu sáng, gà nhà ai gáy, rồi tới cái loa ấp mở nhạc thể dục, rồi cà phê võng Hương, Đàm Vĩnh Hưng, cái bài đó. Cả cái thị trấn thức dậy như mọi bữa, không ai biết đêm qua trong cái nhà này có một ông già suýt làm con gái ổng hết hồn.</p>
+    <p>Lúc ba mê, ba có lảm nhảm. Tôi ngồi gần, tôi nghe được mấy tiếng. Ba kêu "má nó ơi" — má nó là má tôi, ba kêu má tôi. Rồi ba nói cái gì về ghe, về lúa, "chở không kịp con nước". Rồi ba kêu một cái tên. Không phải tên má. Tên khác. "Loan". Ba kêu "Loan" một tiếng, nhỏ, rồi thôi.</p>
+    <p>Tôi nghe. Tôi ngồi đó tôi nghe ba kêu cái tên Loan trong cơn sốt.</p>
+    <p>Tôi không biết Loan là ai. Tôi chưa nghe ba nhắc bao giờ. Má cũng chưa nhắc. Loan. Một cái tên đàn bà, ba kêu trong mê, giữa ghe với lúa với con nước. Tôi lại nhớ tới cái đồng hồ đàn ông trong hộc máy may của má. Tôi không biết của ai. Tôi bỏ đó.</p>
+    <p>Tôi không hỏi ba về Loan. Sáng ba dậy, tỉnh táo, ăn cháo, như chưa hề sốt, như chưa hề kêu tên ai. Tôi múc cháo cho ba, tôi không hỏi. Có những cái mình biết mà mình để yên. Hỏi ra rồi sao. Ba mắc cỡ, ba chối, hay ba kể, kể rồi tôi biết thêm một chuyện buồn nữa, để làm gì. Tôi đủ chuyện buồn rồi. Tôi múc cháo, thổi cho nguội, đút ba.</p>
+    <p>"Đêm qua ba sốt, ba nhớ không." Tôi hỏi, mà hỏi chuyện sốt thôi.</p>
+    <p>Ba ngẫm. "Có hả. Tao không nhớ." Ba húp cháo. "Mơ tầm bậy tầm bạ gì á, quên rồi."</p>
+    <p>Quên rồi. Ừ, quên rồi. Ba quên thiệt. Tôi thì nhớ cái tên Loan, nhớ cái đồng hồ trong hộc máy may. Tôi không hỏi ba câu nào. Tôi rót cho ba ly nước, ba uống, rồi ba ngồi nhìn ra sân như mọi bữa.</p>
+    <div class="post-foot"><a href="#c7">← Rằm</a><span class="sep">·</span><a href="#top">↑ lên đầu</a><span class="sep">·</span><a href="#c9">Cá linh →</a></div>
+  </article>
+
+  <!-- Ch9 -->
+  <article class="post" id="c9">
+    <div class="meta">20 tháng 11, 2024 · Mùa nước rút</div>
+    <h2><span class="num">Chín</span>Cá linh</h2>
+    <p class="first">Rồi nước về.</p>
+    <p>Về trễ, về ít, mà có về. Một buổi sáng tôi ra sau hè thấy mé ruộng xăm xắp, nước đùng đục lé đé bờ. Mấy bữa sau lên thêm chút nữa. Không lớn như mọi năm — năm nay nước đói, ai cũng nói vậy — mà cái màu nước phù sa đùng đục đó, cái mùi bùn non đó, tự nhiên làm cả xóm nhẹ nhõm. Nước về là có cá, có cua, có bông súng bông điên điển, có cái ăn. Nước về là đồng nó sống lại.</p>
+    <p>Chú Bảy bữa đó ghé, mặt tươi. "Anh Hai ơi, nước nó về rồi nghen. Hồi sáng tui giăng lưới dính được mớ cá linh non, đem qua cho anh nửa rổ nè." Chú để cái rổ lên thềm. Cá linh non, con bằng đầu đũa, nhỏ xíu, còn nhảy lao xao. Cá linh đầu mùa, ngọt, làm canh chua bông điên điển là số một.</p>
+    <p>Ba đang ngồi trong nhà, nghe "cá linh", ba quay ra. Mắt ba sáng lên một cái. Tôi ít khi thấy mắt ba sáng. "Cá linh hả." Ba nói. "Đầu mùa hả." Chú Bảy cười "đầu mùa anh, ngọt lắm". Hai ông già đứng nói chuyện cá, chuyện nước, chuyện năm nay nước kém cá ít, giá cá linh ngoài chợ chắc mắc. Ba nói chuyện rôm rả hơn mọi bữa. Cá linh nó kéo ba ra khỏi cái ghế, kéo ba ra tới thềm đứng nói chuyện, cái mà mấy tháng nay tã thuốc với canh lạt không kéo nổi.</p>
+    <p class="brk">*　*　*</p>
+    <p>Tôi đi chợ mua bông điên điển. Có nước là có bông điên điển, người ta hái ngoài đồng đem ra chợ bán, vàng tươi, mớ năm ngàn. Tôi mua hai mớ. Mua thêm me, thêm ngò gai. Về nấu canh chua cá linh bông điên điển, nồi canh của mùa nước, nồi canh mà má hồi xưa nước về là nấu, cả nhà húp tới cạn nồi.</p>
+    <p>Tôi làm cá. Cá linh non khỏi cần đánh vảy, chỉ cần ngắt bỏ ruột, mà nhỏ quá làm cũng cực, tôi ngồi làm cả buổi, tay tanh rình. Tôi nấu me, dầm, lược lấy nước chua. Bắc nồi, nước sôi, thả cá, cá chín thả bông điên điển, bông súng, ngò gai, ớt. Nêm. Lần này tôi nêm đủ nước mắm. Tôi nếm. Vừa.</p>
+    <p>Dọn ra. Một nồi canh chua bốc khói, một dĩa cá linh kho tiêu nữa cho ba ăn với cơm, nước mắm ớt.</p>
+    <p>Ba ngồi vô. Ba húp một muỗng canh.</p>
+    <p>Ba không nói "lạt". Ba không nói gì. Ba húp muỗng thứ hai. Rồi ba và cơm, gắp cá, ăn. Ăn thiệt tình, ăn ngon. Tôi ngồi kế, tôi gắp bông điên điển bỏ vô chén ba. Ba ăn hết chén cơm, đòi thêm lưng chén nữa. Mấy tháng nay ba ăn có nửa chén là cùng. Bữa nay ba ăn lưng chén rưỡi.</p>
+    <p>Tôi không nói gì. Tôi cũng ăn. Mà tôi để ý từng muỗng ba ăn, tôi mừng cái sự ba ăn được, cái mừng nhỏ xíu, vô lý, mừng vì cha mình ăn thêm được nửa chén cơm. Người ngoài nghe chắc thấy kỳ. Mà ai ở trong cái cảnh chăm người bệnh người già mới biết, cái sự người ta ăn được một chén cơm ngon nó lớn cỡ nào. Nó là một ngày tốt. Nó là cha mình còn ở đây, còn thèm ăn, còn cái bụng đòi ăn.</p>
+    <p>Ăn xong ba nói: "Canh chua bây nấu được. Y má bây." Rồi ba đứng dậy, ra ghế ngồi, xỉa răng.</p>
+    <p>Y má bây.</p>
+    <p>Tôi rửa nồi, rửa chén, ngoài kia ba ngồi xỉa răng nhìn ra sân. Tôi rửa, tôi nghe cái câu "y má bây" nó chạy đi chạy lại trong đầu. Ba so tôi với má. Ba khen tôi nấu y má. Với ba, với người đời ba, chắc đó là lời khen lớn nhất ba biết nói. Tôi nấu giống người ba thương nhất. Tôi đứng rửa nồi, tôi cười một mình, cái cười kỳ cục. Khen có nhiêu đó. Mà tôi nhớ tới giờ.</p>
+    <p class="brk">*　*　*</p>
+    <p>Chiều nước lên thêm chút nữa. Tôi ra sau hè đứng nhìn. Cái vuông bồn bồn của má — chỗ ba hay ngồi nhìn — nước đã liếm vô tới mé. Bồn bồn ưa nước. Năm nào nước lớn nó lên đẹp. Năm nay nước đói, mà cũng có nước, biết đâu mấy cái gốc bồn bồn cũ còn sót dưới lớp cỏ, gặp nước, nó nhú lại.</p>
+    <p>Tôi nghĩ, hay mai tôi ra dọn cỏ, coi còn gốc bồn bồn nào không, cấy lại mấy bụi. Trồng cho ba có cái nhìn. Tôi nghĩ vậy. Tôi chưa làm. Mà tôi nghĩ. Mấy tháng trước tôi xuống đây tôi chỉ nghĩ tới bao giờ về, tới tã thuốc, tới tiền. Bây giờ tôi đứng đây nghĩ chuyện cấy lại bồn bồn cho một mùa nước sau.</p>
+    <p>Nước dưới ruộng lăn tăn. Con mực ra mé nước, hửi hửi, rồi ngồi xuống bên tôi, ngó ra đồng. Hai đứa tôi đứng đó một hồi, không làm gì, chỉ ngó nước.</p>
+    <div class="post-foot"><a href="#c8">← Đêm ba sốt</a><span class="sep">·</span><a href="#top">↑ lên đầu</a><span class="sep">·</span><a href="#c10">Buổi chiều →</a></div>
+  </article>
+
+  <!-- Ch10 -->
+  <article class="post" id="c10">
+    <div class="meta">1 tháng 12, 2024 · Mùa nước rút</div>
+    <h2><span class="num">Mười</span>Buổi chiều</h2>
+    <p class="first">Có những bữa ba tỉnh hẳn. Không biết tại sao. Bệnh nó vậy, lúc mê lúc tỉnh, lúc lẫn lúc minh mẫn, không theo quy luật nào tôi đoán được. Có bữa ba ngồi cả ngày không nói, hỏi gì ừ hử, ánh mắt đục. Có bữa ba tỉnh như chưa từng bệnh, nói chuyện rành mạch, nhớ trước nhớ sau.</p>
+    <p>Một buổi chiều tháng Chín, nước đã lên kha khá, ba tỉnh.</p>
+    <p>Chiều đó mát trời, gió từ đồng thổi vô có mùi nước. Ba ngồi hàng ba sau, nhìn ra đồng nước. Tôi pha bình trà, đem ra, định để rồi đi vô như mọi bữa. Ba nói: "Ngồi đi. Ngồi với tao chút."</p>
+    <p>Tôi ngồi xuống cái ghế đẩu kế ba. Lạ. Ba ít khi kêu tôi ngồi.</p>
+    <p>Ba rót trà, tay run, nước sánh ra một ít. Ba uống một hớp. Rồi ba nhìn ra đồng, ba bắt đầu nói. Không phải nói với tôi hẳn. Nói như nhớ ra thành tiếng.</p>
+    <p>"Hồi bảy mươi tám, bảy mươi chín, đói rã họng. Tao đi chở lúa mướn. Có cái ghe, ghe của ông Chín cho mướn lại, tao với thằng Tư Đen chèo. Chở lúa từ dưới Sóc Trăng, Bạc Liêu, lên trên. Đi cả tuần mới được một chuyến. Nước lớn nước ròng phải canh, canh sai con nước là mắc cạn, nằm đợi, lúa trên ghe nó hấp hơi, hư, là đền."</p>
+    <p>Tôi ngồi nghe. Tôi chưa nghe ba kể cái này bao giờ. Hồi tôi nhỏ ba đi suốt, tôi biết ba làm ghe, mà ba đâu có kể. Đàn ông thời đó không kể. Đi làm, về, ăn, ngủ, đi nữa. Bây giờ già, bệnh, tự nhiên ba kể.</p>
+    <p>"Một chuyến, tao nhớ, chở lúa lên tới Cái Răng, gặp bão. Bão tháng Mười. Sóng đánh, ghe chực lật. Tao với thằng Tư tát nước muốn gãy tay. Lúa ướt hết một góc. Tối đó tấp vô bến, núp. Bến Cái Răng." Ba ngừng, uống trà. "Có con nhỏ bán cơm ở bến đó. Tên Loan."</p>
+    <p>Loan.</p>
+    <p>Tôi không động đậy. Tôi cầm ly trà, tôi nhìn ra đồng như ba, tôi để ba kể.</p>
+    <p>"Nó bán cơm cho ghe thương hồ. Tối đó tao ướt như chuột, đói, vô quán nó. Nó bới cho tao chén cơm, hâm lại tô canh, không lấy tiền. Nó nói để khi nào anh có thì trả. Tao ăn chịu nó ba bữa, đợi bão tan. Tới chừng đi, tao trả tiền, nó không lấy. Nó nói thôi, ghe thương hồ nay đây mai đó, lấy gì của nhau." Ba cười khẽ, cái cười của người nhớ chuyện xa. "Vậy thôi. Tao đi. Năm sau ghé lại bến đó, quán không còn. Người ta nói nó lấy chồng đâu xa rồi. Vậy thôi."</p>
+    <p>Vậy thôi. Ba nói "vậy thôi" hai lần. Một con nhỏ bán cơm cho ăn chịu ba bữa hồi bão, rồi đời ai nấy đi. Mà ba nhớ tên. Bốn chục năm ba nhớ cái tên Loan, nhớ cái bến Cái Răng.</p>
+    <p>Tôi không hỏi gì thêm. Tôi không hỏi "rồi sao nữa ba", không hỏi "ba có thương người ta không". Hỏi làm chi. Ba nói vậy thôi là vậy thôi. Cái tôi cần — ngồi đây, chiều mát, nghe ba còn đủ tỉnh để kể tôi nghe một khúc đời ba — cái đó tôi có rồi.</p>
+    <p class="brk">*　*　*</p>
+    <p>Ba kể thêm mấy chuyện ghe nữa. Chuyện thằng Tư Đen sau đi vượt biên mất tích. Chuyện một lần ghe chở lúa gặp cướp sông. Chuyện ba gặp má — má ở một bến khác, bến Trà Ôn, má đi bán bông, ba chở má một khúc, rồi quen. "Má bây dữ lắm," ba nói, cười. "Tao chở giùm một khúc mà nó trả tiền sòng phẳng, không cho tao thiếu một cắc. Tao mê cái đó." Ba mê má vì má sòng phẳng.</p>
+    <p>Tôi ngồi nghe tới trời sụp tối. Muỗi ra, tôi đốt khoanh nhang muỗi để dưới chân. Ba kể, tôi nghe, thỉnh thoảng tôi hỏi một câu cho ba kể tiếp. Lâu lắm rồi hai cha con mới ngồi với nhau lâu như vậy mà không gắt nhau. Không có canh lạt canh mặn. Không có số 67. Chỉ có ba kể, tôi nghe, đồng nước trước mặt, trời tối dần.</p>
+    <p>Tới lúc tối hẳn, ba mỏi, ba nói thôi vô. Tôi đỡ ba vô, ba nằm, ba ngủ ngon. Tôi đứng coi ba ngủ một chút. Tôi nghĩ, bữa nay là một bữa tốt. Tôi muốn giữ cái bữa nay. Tôi biết mấy cái bữa tốt vầy nó hiếm, nó không ở lại, mai mốt ba lại lẫn, lại mê. Nên bữa nay tôi giữ. Tôi đem nó cất, cất kỹ, cất vô cái chỗ trong người mà tôi cất cuốn sổ của má, cái lon sữa bò, cái câu bây ăn cơm chưa. Cái chỗ đó trong tôi giờ cũng đầy rồi. Mà còn bao nhiêu tôi cũng cất.</p>
+    <p>Tôi không biết — đêm đó tôi không biết — bữa tỉnh táo đó là một trong những bữa cuối ba còn kể tôi nghe trọn một câu chuyện. Sau bữa đó ba lẫn nhiều hơn. Nếu tôi biết, tôi đã ngồi lâu hơn. Mà tôi đâu có biết. Tôi đi ngủ như mọi bữa, tính bụng mai mốt rảnh ba còn kể.</p>
+    <div class="post-foot"><a href="#c9">← Cá linh</a><span class="sep">·</span><a href="#top">↑ lên đầu</a><span class="sep">·</span><a href="#c11">Con mực →</a></div>
+  </article>
+
+  <!-- Ch11 -->
+  <article class="post" id="c11">
+    <div class="meta">15 tháng 12, 2024 · Mùa nước rút</div>
+    <h2><span class="num">Mười một</span>Con mực</h2>
+    <p class="preface">Chương này tôi viết xong rồi để cả tuần không dám đăng. Thôi đăng đại. Ai có nuôi chó già chắc hiểu.</p>
+    <p class="first">Con mực chết.</p>
+    <p>Nó già rồi. Mười mấy tuổi chó là già lắm. Mấy bữa cuối nó bỏ ăn, nằm lì dưới gốc xoài, thở mệt. Tôi biết nó sắp đi. Tôi có đem cho nó miếng cá, nó không ăn. Tôi để tô nước kế nó. Nó liếm chút.</p>
+    <p>Một buổi sáng tôi ra, nó nằm im, lạnh rồi. Đi hồi đêm. Nằm cong, đầu gác lên hai chân trước, như ngủ. Con mực, con chó từ hồi tôi chưa đi, con chó của ba, ngủ gầm ván, ăn cơm thừa, sủa người lạ, già khú đế, đi rồi.</p>
+    <p>Tôi ngồi xuống bên nó. Tôi vuốt cái đầu nó, lông quanh mõm bạc trắng. Tôi không khóc. Mà tôi ngồi lâu. Con mực không phải con tôi, không phải người, nó là con chó. Mà nó ở cái nhà này lâu hơn tôi ở. Mười mấy năm tôi đi, nó ở với ba, nó với ba hủ hỉ. Tôi về mấy tháng nay, nó là đứa đón tôi ngoài cổng, ngoắc đuôi. Đêm tôi canh ba sốt, nó nằm ngoài hiên, thức theo. Bữa tôi đứng ngó nước, nó ngồi kế bên. Giờ nó đi.</p>
+    <p>Tôi đem con mực ra sau hè, chỗ gần vuông bồn bồn, đào cái lỗ, chôn. Đất ướt, dễ đào. Tôi chôn nó, lấp đất, lấy cục gạch đặt lên cho biết. Tôi làm lặng lẽ, không cho ba hay liền. Tôi sợ ba buồn.</p>
+    <p class="brk">*　*　*</p>
+    <p>Trưa ba hỏi: "Con mực đâu."</p>
+    <p>Tôi đứng ở bếp. Tôi đã chuẩn bị tinh thần câu này, mà nghe vẫn hơi khựng. Tôi nói: "Dạ... con mực nó chết rồi ba. Hồi đêm. Nó già quá."</p>
+    <p>Ba ngồi im một lúc. Mặt ba xịu xuống. Ba "ờ" một tiếng, nhỏ. Rồi ba quay mặt ra cửa, không nói gì nữa. Tôi biết ba buồn. Con mực là của ba, ba nuôi nó từ nhỏ. Tôi để ba yên. Buồn thì để ba buồn, ai chẳng phải buồn khi mất một con vật ở với mình mười mấy năm.</p>
+    <p>Tới chiều, ba lại hỏi: "Con mực đâu rồi bây. Sao hồi sáng giờ không thấy nó."</p>
+    <p>Tôi khựng.</p>
+    <p>Ba quên. Ba quên là hồi trưa tôi đã nói con mực chết. Cái bệnh nó vậy, ba quên cái mới, nhớ cái cũ. Ba quên tôi vừa nói cách đây mấy tiếng. Bây giờ ba hỏi lại, như hỏi lần đầu.</p>
+    <p>Tôi đứng đó, tôi phải chọn. Nói thiệt lần nữa — con mực chết rồi ba — thì ba lại nghe tin đó lần nữa, lại buồn lần nữa, buồn như mới. Cái tin con chó chết, ba phải chịu hai lần trong một ngày. Hay tôi nói dối — nó đi chơi đâu đó ba, chắc nó lội qua đồng — thì ba khỏi buồn, mà tôi nói dối ba, và mai ba lại hỏi, tôi lại dối, dối hoài.</p>
+    <p>Tôi nói: "Nó... nó nằm sau hè đó ba. Nó ngủ."</p>
+    <p>Nửa dối nửa thiệt. Nó nằm sau hè thiệt. Nó ngủ thiệt, ngủ luôn. Tôi không nói chết. Tôi không chịu nổi cái mặt ba xịu xuống thêm lần nữa.</p>
+    <p>Ba "ờ". Ba tin. Ba nói: "Con đó ngủ dữ. Già rồi mà." Rồi ba thôi.</p>
+    <p>Tôi quay vô bếp, đứng dựa cái kệ. Tôi vừa nói dối cha tôi về cái chết của con chó. Để ba khỏi buồn. Tôi nói dối là phải hay quấy, tôi không biết. Người ta nói chăm người lú lẫn thì đừng cãi, đừng bắt nhớ cái đau, cứ chiều theo cái bụng họ. Nói thì dễ. Mà người ta đâu có đứng ở chỗ tôi, đứng ở cái bếp này, nói dối ba mình con mực còn ngủ sau hè.</p>
+    <p class="brk">*　*　*</p>
+    <p>Mấy bữa sau ba còn hỏi con mực mấy lần nữa. Lần thì tôi nói nó ngủ. Lần thì tôi nói nó đi loanh quanh. Lần thì ba hỏi xong tự ba lẫn qua chuyện khác, khỏi cần tôi trả lời. Từ từ ba hỏi thưa lại. Rồi ba thôi hỏi. Tôi không biết ba quên luôn là nhà có con mực, hay ba nhớ mơ hồ rằng nó không còn, hay trong cái đầu lẫn của ba con mực vẫn còn ngủ đâu đó sau hè, đời đời. Tôi không biết. Tôi không hỏi vô cái đầu ba được.</p>
+    <p>Có một điều tôi giữ riêng, không nói ai: tôi mừng. Tôi mừng là ba quên. Tôi biết nghĩ vậy là kỳ, là tệ. Mà tôi mừng. Tại vì cái nhớ nó đau. Ba mà nhớ con mực chết, ba buồn mỗi ngày. Ba quên, ba khỏi buồn.</p>
+    <p>Tôi ra sau hè, chỗ chôn con mực. Cục gạch còn đó. Cỏ bắt đầu lên quanh. Tôi ngồi chồm hổm một chút. Tôi nói nhỏ, nói với cục gạch: "Ba quên mày rồi, con mực. Mày đừng buồn. Ba quên nhiều thứ lắm, đâu riêng mày." Nói xong tôi thấy mình khùng, ngồi nói chuyện với con chó chết. Tôi phủi đít quần đứng dậy.</p>
+    <div class="post-foot"><a href="#c10">← Buổi chiều</a><span class="sep">·</span><a href="#top">↑ lên đầu</a><span class="sep">·</span><a href="#c12">Điện thoại →</a></div>
+  </article>
+
+  <!-- ===== PHẦN BA ===== -->
+  <div class="part-divider"><span>Phần ba · Nước rút</span></div>
+
+  <!-- Ch12 -->
+  <article class="post" id="c12">
+    <div class="meta">5 tháng 1, 2025 · Mùa nước rút</div>
+    <h2><span class="num">Mười hai</span>Điện thoại</h2>
+    <p class="preface">Qua năm mới rồi. Chúc mọi người năm mới bình an. Đăng tiếp nha, cũng gần hết rồi.</p>
+    <p class="first">Chồng tôi gọi.</p>
+    <p>Tôi để cái tên ảnh trong điện thoại là "Tùng", trơn vậy, không "anh", không "ông xã", không gì hết. Hồi mới quen tôi để "Anh Tùng ❤️". Rồi bỏ cái tim. Rồi bỏ chữ "Anh". Còn "Tùng".</p>
+    <p>Tôi thấy "Tùng" hiện lên màn hình, tôi biết ảnh gọi chuyện gì. Mấy tháng nay ảnh gọi chỉ một chuyện. Giấy.</p>
+    <p>Tôi bước ra sân nghe, ra xa, ra tới gần chuồng vịt sau hè, cho ba khỏi nghe. Ba lẫn thì lẫn mà tai ba thính, ba nghe được là ba hỏi, tôi không biết trả lời sao. Ba đâu có biết tôi với Tùng đã vầy. Tôi giấu ba. Thêm một cái tôi giấu.</p>
+    <p>"Alô."</p>
+    <p>"Em hả. Em khỏe không." Tùng nói, giọng ảnh đều đều, lịch sự kiểu người đã hết thương mà còn nể. "Ba em sao rồi."</p>
+    <p>"Cũng vậy. Có chuyện gì anh nói đi."</p>
+    <p>Tùng ngập ngừng. Rồi ảnh nói cái chuyện giấy. Giấy ly hôn ảnh nhờ người làm xong rồi, ảnh gửi về cho tôi ký, ký rồi gửi lại, ra tòa thuận tình cho nhanh, khỏi mất công ai. Ảnh nói nhẹ nhàng, sắp xếp đâu ra đó, như ảnh sắp xếp mọi thứ. Tùng là người ngăn nắp. Hồi xưa tôi mê ảnh vì cái đó — ảnh ngăn nắp như tôi, hai đứa hợp. Cuối cùng tụi tôi chia tay cũng ngăn nắp, êm ru, không chửi bới, không ném đồ. Chỉ là hết. Hết con đường thì dừng, vậy thôi.</p>
+    <p>Tụi tôi không có con. Tám năm. Đi khám, bác sĩ nói tại tôi, buồng trứng tôi yếu, khó. Tùng không nói gì. Ảnh không trách tôi một câu. Mà chính cái không-trách đó nó giết tôi từ từ. Ảnh quá tử tế để trách, mà ảnh cũng quá thèm có một đứa con để ở lại. Ảnh ba mươi mấy, ảnh là con một, má ảnh mong cháu. Tôi biết hết. Tôi biết tới ngày ảnh gặp người khác, người ta đẻ được, là ảnh đi. Ảnh chưa nói, mà tôi biết. Đàn bà mình biết mấy cái đó trước khi nó xảy ra.</p>
+    <p>"Em ký rồi gửi lại sớm sớm giùm anh nha. Để lâu cũng kỳ." Tùng nói.</p>
+    <p>Tôi đứng ngoài sân, điện thoại áp tai, mấy con vịt dưới chân kêu cạp cạp đòi ăn. Tôi nói: "Để ba em đỡ đỡ rồi tính. Giờ em rối lắm Tùng à."</p>
+    <p>Đó là tôi nói dối. Ba với cái giấy ly hôn liên quan gì nhau. Tôi mượn ba làm cớ. Sự thiệt là tôi chưa muốn ký. Không phải tôi còn thương Tùng tới mức níu. Hết rồi, tôi biết. Mà ký vô tờ giấy đó là xong, là tôi bốn mươi mốt tuổi, ly hôn, không con, một mình. Ký là tôi thành cái đó, đen trên trắng, có mộc đỏ. Tôi chưa muốn thành cái đó. Để sau. Cái gì tôi cũng để sau.</p>
+    <p>Tùng im một chút. Ảnh hiểu. Ảnh luôn hiểu, cái đó tôi nể ảnh. "Ừ. Em lo cho ba đi. Khi nào rảnh thì tính." Ảnh ngừng. "Giữ sức khỏe nha Hậu."</p>
+    <p>Cúp máy. Tôi đứng ngoài sân một hồi. Vịt kêu. Trời chiều. Tôi không buồn lắm, lạ vậy. Có khi cái gì đau quá lâu rồi thì nó hết đau, nó chai, nó thành một cục gì đó nằm trong người, mình quen sống với nó, mình quên là mình đang đau.</p>
+    <p class="brk">*　*　*</p>
+    <p>Tối thằng Út gọi.</p>
+    <p>Nó gọi video, chắc bằng Zalo, cái mặt nó hiện lên màn hình, sau lưng là nhà trọ Bình Dương, có tiếng con nít khóc. "Chị. Ba sao rồi chị." Tôi xoay điện thoại cho nó thấy ba đang ngồi ván. "Ba ơi, thằng Út nè ba." Ba nhìn màn hình, ngớ ra, rồi cười: "Út hả con. Bao giờ về." Thằng Út nói "dạ con sắp về thăm ba, ba giữ sức khỏe nha ba". Ba ừ ừ. Nói được mấy câu ba chán, ba quay đi. Tôi cầm điện thoại ra sau.</p>
+    <p>"Sắp về là bao giờ." Tôi hỏi nó. Tôi hỏi cộc.</p>
+    <p>"Dạ... con tính Tết chị à. Giờ công ty cuối năm nhiều hàng, với con Mén mới sanh, đi xa khó."</p>
+    <p>Tết. Còn ba tháng nữa Tết. Tôi nhẩm liền, ba tháng nữa, là tôi còn ngồi đây ba tháng nữa, ít nhất. Tôi không nói. Tôi nói: "Ừ. Tết về."</p>
+    <p>"Chị, tháng này con gửi thêm cho chị năm trăm, lo cho ba. Chị đừng ngại." Nó nói "đừng ngại" như thể tôi ngại tiền. Tôi không ngại tiền. Tôi cầm tiền nó, tôi xài cho ba đàng hoàng, tôi ghi sổ. Cái tôi ngại không phải tiền. Cái tôi ngại là cái cách nó nghĩ gửi tiền là xong phần nó. Nó gửi tiền, tôi gửi đời. Nó ở Bình Dương với vợ con nó, cuối tháng chuyển khoản, nhẹ tênh. Tôi ở đây lau đít cho ba, nói dối ba con mực còn ngủ, đếm tã đếm thuốc, để cái va li mốc trong góc. Tiền với cái đó, đổi qua đổi lại được không. Không. Mà tôi nói gì được. Nói ra thì thành tôi kể công, tôi đo lường tình với em ruột bằng tiền, tôi thành cái thứ tôi ghét. Nên tôi nuốt. Tôi nuốt riết thành quen.</p>
+    <p>"Ừ. Gửi thì gửi. Thôi con dỗ con Mén đi, nó khóc kìa." Tôi cúp.</p>
+    <p>Tôi ngồi xuống bậc thềm sau. Tôi tức. Tôi tức thằng Út, mà tôi biết tức nó cũng không công bằng — nó có cái khó của nó, vợ mới sanh, công ty, đường xa, lý do nào cũng thiệt. Tôi biết. Mà biết không làm hết tức. Cái tức nó không nghe lý. Tôi ngồi đó tức một hồi, rồi tôi thôi, vì tức hoài mệt, mà ngày mai còn dài, còn tã còn thuốc còn ba.</p>
+    <p>Trong nhà ba kêu: "Hậu. Bây đâu rồi. Tối rồi sao chưa dọn cơm." Tôi dạ. Tôi đứng dậy, đi vô, bắc nồi, dọn cơm. Cái va li trong góc, tôi đi ngang, tôi không nhìn nó.</p>
+    <div class="post-foot"><a href="#c11">← Con mực</a><span class="sep">·</span><a href="#top">↑ lên đầu</a><span class="sep">·</span><a href="#c13">Giăng câu →</a></div>
+  </article>
+
+  <!-- Ch13 -->
+  <article class="post" id="c13">
+    <div class="meta">19 tháng 1, 2025 · Mùa nước rút</div>
+    <h2><span class="num">Mười ba</span>Giăng câu</h2>
+    <p class="first">Rằm tháng Mười nước lên cao nhất. Năm nay cao nhất cũng chỉ tới vầy — mé ruộng, lé đé bờ lộ, không tràn vô sân như mấy năm nước lớn. Mà thôi, có chừng đó cũng mừng. Người ta nói nước đói, nhưng đói còn hơn không.</p>
+    <p>Chú Bảy rủ tôi đi giăng câu.</p>
+    <p>"Ba mày ngủ trưa, đi với chú một lát, giăng mấy tay câu, chiều có cá ăn." Chú nói, đứng ngoài rào. Tôi ngó vô nhà, ba đang ngủ trưa, ngủ say. Tôi nhờ bà Tư ngó giùm — "bà Tư ơi con đi giăng câu với chú Bảy chút, bà coi chừng ba con giùm" — bà Tư dạ liền, mừng vì có cớ qua nhà tôi ngồi. Tôi đi.</p>
+    <p>Chú Bảy có cái xuồng ba lá, nhỏ, cũ. Chú chống xuồng, tôi ngồi đằng mũi. Xuồng ra đồng nước. Nước đục, phù sa, lục bình trôi từng đám. Trời trưa mà có gió, mát. Chú chống xuồng thành thạo, cây sào cắm xuống bùn đẩy một cái, xuồng đi êm. Tôi ngồi im. Lâu lắm rồi tôi không ngồi xuồng. Hồi nhỏ tôi ngồi xuồng hoài, mùa nước đi học bằng xuồng. Bây giờ ngồi lại, cái cảm giác xuồng dập dềnh dưới đít, tôi nhớ.</p>
+    <p>Chú Bảy giăng câu. Câu cắm, câu giăng, chú móc mồi trùn, thả xuống mấy chỗ chú biết có cá. Chú làm thinh, tôi cũng làm thinh. Hai người trên cái xuồng giữa đồng nước, không nói gì, mà không thấy kỳ. Có những cái im nó nặng nề, như cái im của tôi với ba hồi tôi mới về. Có những cái im nó nhẹ, như cái im này. Im mà dễ thở.</p>
+    <p>Một hồi chú nói, không nhìn tôi, mắt nhìn mấy tay câu: "Ba mày hồi trẻ giỏi lắm. Ông Hai ghe mà. Cả vùng này ai không biết."</p>
+    <p>"Dạ."</p>
+    <p>"Tao với ổng quen từ hồi đó. Hồi đó ổng chèo ghe, tao đi bạn ghe cho người ta. Tụi tao trẻ, ngang tàng." Chú cười. "Giờ ổng vầy, tao vầy. Mau thiệt."</p>
+    <p>Tôi không biết nói gì. Tôi "dạ" một tiếng nữa. Chú Bảy cũng không cần tôi nói gì. Chú nói cho có nói, nói với đồng nước cũng được.</p>
+    <p class="brk">*　*　*</p>
+    <p>Chú Bảy goá vợ lâu rồi. Vợ chú mất hồi nào tôi không rõ, hồi tôi còn chưa đi. Chú ở một mình, không con — hay có con mà đi xa, tôi không rõ, ở đây chuyện nhà ai tôi cũng biết lờ mờ. Bà Tư hay nói ra nói vô, "đàn ông gì để cái nhà lạnh tanh", "sao không kiếm bà nào". Người ta hay vậy, thấy ai ở một mình là sốt ruột giùm.</p>
+    <p>Mà tôi ngồi trên xuồng với chú Bảy, tôi thấy chú đâu có bệnh gì. Chú sống một mình, sáng giăng câu, chiều về nấu cơm ăn, tối ngủ. Chú gọn gàng, sạch sẽ, cái xuồng chú lau chùi, mấy tay câu chú cuộn ngay ngắn. Chú không lạnh tanh. Chú chỉ ở một mình, gọn gàng, tôi thấy cũng được. Tôi nghĩ tới tôi, bốn mươi mốt, sắp ly hôn, không con. Mai mốt tôi cũng một mình. Tôi nhìn chú Bảy, tôi nghĩ, một mình mà sống được như chú cũng đâu có sao. Chú đâu có khổ. Hay chú khổ mà chú giấu, giấu giỏi như chú cuộn mấy tay câu. Tôi không biết. Tôi không hỏi. Hỏi mấy cái đó kỳ.</p>
+    <p>Có một lúc — tôi nhớ hoài cái lúc này, nhỏ xíu mà tôi nhớ — chú Bảy gỡ được con cá rô mề dính câu, con cá quẫy, chú gỡ, rồi chú đưa tôi coi, cười, "ngon nha, kho tiêu cho ba mày". Cái cười của chú hiền, mắt nhăn lại. Tôi cầm con cá, nó còn quẫy trong tay tôi, nhớt, mạnh. Tự nhiên tôi thấy trong người ấm một cái. Không phải tôi thương chú Bảy theo kiểu bà Tư hay nghĩ. Không phải. Mà là cái cảm giác có một người, một người đàn ông tử tế, nghĩ tới chuyện con cá này kho tiêu cho ba mình ăn. Mấy tháng nay tôi gánh ba một mình. Tự nhiên có một người chìa ra con cá, nói kho cho ba mày. Có nhiêu đó thôi.</p>
+    <p>Tôi nói "dạ, cảm ơn chú", rồi cúi xuống bỏ cá vô giỏ. Tôi không nói thêm. Tôi vốn không giỏi mấy cái cảm ơn cảm huệ.</p>
+    <p class="brk">*　*　*</p>
+    <p>Chiều xuồng về, giỏ được mớ cá — mấy con rô, con sặc, ít cá lòng tong. Chú chia cho tôi hơn nửa. Tôi nói thôi chú lấy đi, chú nói "tao ăn nhiêu, mày đem về kho cho ba mày". Tôi cầm. Người ở đây vậy đó. Cho nhau con cá mớ rau, chẳng có gì, mà thiệt. Không phải cho để mắc nợ, để tính toán. Cho vì có dư thì cho. Tôi đi thành phố mười mấy năm, ở thành phố người ta cho nhau cái gì cũng có ý, có sau có trước. Về đây chú Bảy cho tôi mớ cá không có ý gì hết, tôi cầm mà tôi thấy lạ, thấy mình quên mất cái kiểu cho-không-ý này lâu rồi.</p>
+    <p>Về tới nhà, bà Tư còn ngồi đó với ba, đang nói chuyện gì rổn rảng. Thấy tôi xách giỏ cá, mắt bà sáng lên, bà nói "chèn ơi nhiều cá dữ, chú Bảy cho hả con, cái chú đó được nết". Rồi bà liếc tôi, cười cười, cái cười tôi biết bà đang nghĩ bậy bạ trong đầu. Tôi làm lơ. Tôi đem cá ra sau làm. Ba hỏi vói ra "cá gì đó bây", tôi nói "cá rô chú Bảy cho, chút con kho tiêu ba ăn". Ba "ờ", giọng vui vui.</p>
+    <p>Tôi ngồi làm cá sau hè, nước đồng trước mặt mênh mông, chiều xuống. Tôi đánh vảy con cá rô mề chú Bảy đưa tôi hồi trưa. Tôi nghĩ bụng, mùa nước rồi cũng tới đỉnh, mai mốt nước rút. Nước rút rồi sao nữa, tôi chưa nghĩ tới. Cứ để nước nó rút đã.</p>
+    <div class="post-foot"><a href="#c12">← Điện thoại</a><span class="sep">·</span><a href="#top">↑ lên đầu</a><span class="sep">·</span><a href="#c14">Nước rút →</a></div>
+  </article>
+
+  <!-- Ch14 -->
+  <article class="post" id="c14">
+    <div class="meta">2 tháng 2, 2025 · Mùa nước rút</div>
+    <h2><span class="num">Mười bốn</span>Nước rút</h2>
+    <p class="first">Qua rằm tháng Mười nước đứng mấy bữa rồi bắt đầu rút.</p>
+    <p>Rút chậm. Mỗi ngày xuống một chút, để lại trên bờ trên cỏ một lớp bùn non, mịn, màu nâu nhạt, trơn nhẫy. Bùn non là cái màu mỡ của đồng, sang năm lúa tốt nhờ nó. Mà bùn non cũng là cái trơn chết người, người già bước lên là té.</p>
+    <p>Hồi nước mới về, có bữa rảnh tôi ra sau hè dọn cỏ cái vuông bồn bồn của má. Tôi dọn lén, không nói ba. Tôi nhổ cỏ, cuốc đất, kiếm coi còn gốc bồn bồn cũ nào không. Còn. Mấy cái gốc già nằm dưới lớp cỏ, gặp nước, nhú lên được mấy đọt non. Tôi cấy thêm — tôi xin mấy bụi bồn bồn giống của nhà bên kia đồng, lội qua xin, người ta cho — cấy xuống vuông đất. Nước lên, bồn bồn lên theo. Tới giờ, nước rút, vuông đất đã lưa thưa mấy bụi bồn bồn xanh, không nhiều, mà có. Có màu xanh ở cái chỗ mấy năm nay chỉ có cỏ.</p>
+    <p>Tôi chưa khoe ba. Tôi định để ba tự thấy. Mà ba ít ra sau hè, ba yếu, ba ngại bước.</p>
+    <p>Một buổi sáng nước đã rút gần cạn, ba đòi ra coi đồng.</p>
+    <p>"Dắt tao ra sau coi cái." Ba nói. "Lâu rồi tao không ra."</p>
+    <p>Tôi ngại. Bùn non trơn lắm. Mà ba đòi, mắt ba sáng, cái kiểu sáng như bữa nghe cá linh. Tôi không nỡ cản. Tôi nói "để con dắt ba, ba đi từ từ nha".</p>
+    <p class="brk">*　*　*</p>
+    <p>Ra tới hàng ba sau, ba dừng. Ba nhìn ra. Rồi ba thấy.</p>
+    <p>Ba thấy vuông bồn bồn. Mấy bụi xanh lưa thưa trên nền bùn. Ba đứng khựng. Ba nhìn một hồi lâu. Rồi ba nói, giọng hơi run: "Ai trồng."</p>
+    <p>"Dạ con."</p>
+    <p>Ba không nói gì. Ba nhìn vuông bồn bồn. Tôi đứng kế, đỡ tay ba. Tôi không biết ba nghĩ gì. Có thể ba nghĩ tới má. Vuông bồn bồn này là của má, má trồng, má mất, nó thành cỏ, giờ con gái má trồng lại. Có thể ba nghĩ vậy. Có thể ba chỉ nghĩ "ờ, có bồn bồn, mai mốt có cái làm dưa". Tôi không biết ba nghĩ gì. Tôi đoán hoài mà tôi chưa bao giờ chắc tôi đoán trúng cái đầu ba.</p>
+    <p>"Tao ra coi gần cái." Ba nói.</p>
+    <p>"Ba ơi bùn trơn lắm. Ba té."</p>
+    <p>"Tao đi được. Dắt tao."</p>
+    <p class="brk">*　*　*</p>
+    <p>Tôi dắt ba xuống. Tôi đi trước một bước, một tay nắm tay ba, một tay đỡ nách ba. Bùn non dưới chân nhẫy nhợt. Tôi dò từng bước, tôi đặt chân tôi xuống trước, ướm coi trơn cỡ nào, rồi tôi mới đỡ ba bước theo. Ba bước run run, bàn chân ba dò dẫm, mấy ngón chân quặp xuống bám đất. Tôi nói "ba đặt chân chỗ con vừa đứng nè ba, chỗ này chắc". Ba nghe lời. Lạ. Ba cứng đầu cả đời, mà cái lúc đó ba nghe lời tôi, ba để tôi dắt, ba đặt chân đúng chỗ tôi chỉ.</p>
+    <p>Đi được mấy bước ba trượt một cái. Tôi đỡ kịp. Tôi ghì ba lại, hai cha con loạng choạng, tôi gồng cứng người giữ ba khỏi ngã. Ba nắm chặt tay tôi. Bàn tay ba bấu tay tôi đau điếng. Tôi nghe tim tôi đập thình thình — sợ, sợ ba té, ba té là gãy, là nằm, là xong. Tôi giữ được. Ba đứng vững lại. Ba thở. Tôi thở.</p>
+    <p>"Không sao. Đứng vững rồi ba. Mình đi tiếp, từ từ."</p>
+    <p>Và tôi đứng đó, giữa đồng bùn, một tay giữ cha tôi, tôi tự nhiên nhớ. Tôi nhớ hồi tôi nhỏ xíu, mới tập đi, chắc má kể tôi nghe nên tôi "nhớ" vậy chứ tôi đâu nhớ thiệt — má dắt tôi tập đi ngoài sân, má đi thụt lùi trước mặt tôi, hai tay má đưa ra, "lại đây con, lại với má, té má đỡ". Bây giờ tôi đi trước ba, tôi đưa tay ra, tôi nói "lại đây ba, đặt chân chỗ này, té con đỡ". Cái này tôi nghĩ ra sau, đêm nằm. Lúc đó tôi không nghĩ gì hết. Lúc đó tôi chỉ có: giữ chặt, dò bước, đừng té, đừng té.</p>
+    <p class="brk">*　*　*</p>
+    <p>Tụi tôi ra tới vuông bồn bồn. Ba chồm người, một tay vịn tôi, một tay với xuống. Ba sờ một bụi bồn bồn non. Ba vuốt cái lá. Ba không nói gì. Ba sờ cái lá bồn bồn lâu, mấy ngón tay cứng của ba vuốt cái lá xanh, nhẹ, như sợ làm gãy.</p>
+    <p>Rồi ba nói, nhỏ, không nhìn tôi: "Ừ. Tốt. Năm sau có dưa bồn bồn."</p>
+    <p>Vậy thôi. Ba nói vậy thôi. Năm sau có dưa bồn bồn. Ba không nói "cảm ơn con", không nói gì tới má. Ba nói năm sau có dưa. Ba nói "năm sau" — ba tin có năm sau, ba tin ba còn ở đây năm sau mà ăn dưa bồn bồn. Cái đó tôi không dám đụng vô.</p>
+    <p>"Dạ. Năm sau có dưa." Tôi nói.</p>
+    <p>Tôi dắt ba vô lại. Đi vô cũng trơn như đi ra, cũng dò từng bước, cũng một lần suýt té. Vô tới hàng ba, ba ngồi phịch xuống ghế, thở dốc, mà mặt ba giãn ra, coi bộ vui. Tôi rửa chân cho ba — chân ba dính bùn non tới mắt cá — tôi múc nước, rửa, lau khô. Ba để tôi rửa chân. Ba ngó ra vuông bồn bồn. Cả buổi sáng đó ba không gắt tôi câu nào.</p>
+    <div class="post-foot"><a href="#c13">← Giăng câu</a><span class="sep">·</span><a href="#top">↑ lên đầu</a><span class="sep">·</span><a href="#c15">Nồi cơm →</a></div>
+  </article>
+
+  <!-- Ch15 -->
+  <article class="post" id="c15">
+    <div class="meta">16 tháng 2, 2025 · Mùa nước rút</div>
+    <h2><span class="num">Mười lăm</span>Nồi cơm</h2>
+    <p class="first">Cuối tháng Mười một nước rút cạn. Đồng trơ ra, bùn se lại, nứt nhẹ trên mặt. Người ta bắt đầu cày ải, sửa soạn vụ đông xuân. Cái mùa nước đói năm đó vậy là hết. Nước năm nay ít cá. Mà cũng qua một mùa.</p>
+    <p>Giấy của Tùng gửi về rồi. Một cái phong bì lớn, bưu điện đem tới, trong có xấp giấy với mấy chỗ dán giấy nhớ màu vàng, "ký vô đây", "ký vô đây". Tùng cẩn thận, ảnh dán sẵn chỗ cho tôi khỏi kiếm. Tôi cầm xấp giấy, tôi đọc một lượt. Chữ nghĩa rõ ràng, thuận tình, không ai tranh chấp ai cái gì, tụi tôi có gì đâu mà tranh, không con, nhà thuê, xe ai nấy đi. Sạch sẽ. Như con người Tùng.</p>
+    <p>Tôi để xấp giấy trong hộc tủ. Tôi chưa ký. Tôi không biết tôi đợi gì. Tôi không níu Tùng — hết thiệt rồi, tôi biết. Mà tôi chưa ký. Tôi để đó. Để sau. Tôi nói với tôi là đợi ba đỡ đỡ, đợi qua Tết, đợi thằng Út về. Đợi gì cũng được, miễn là đợi. Cái gì dứt khoát quá tôi cũng chùn. Cây bút tôi cầm cả ngày ở công ty, ký cả trăm cái chứng từ không run tay, mà cái giấy này tôi chưa đặt bút xuống được.</p>
+    <p>Cái va li của tôi vẫn trong góc, chỗ chân tủ thờ. Tôi xuống đây hồi tháng Bảy, tính ở tới rằm tháng Tám. Giờ cuối tháng Mười một. Cái va li nằm đó năm tháng, mốc một đường ở quai. Tôi chưa về Cần Thơ lần nào. Công ty tôi xin nghỉ không lương, người ta cũng làm khó, mà tôi lì, tôi nói nhà có việc, người ta cũng phải cho. Lương tôi mất. Tiền tôi hao. Cái nhà tôi với Tùng trên đó chắc ảnh dọn đi rồi, đồ tôi không biết ảnh để đâu. Tôi không hỏi. Tôi ở đây.</p>
+    <p>Tôi không quyết định ở lại. Tôi chưa bao giờ ngồi xuống quyết định cái gì hết. Tôi chỉ không đi. Ngày này qua ngày kia tôi không đi, rồi thành ra ở. Người ta tưởng kế toán thì cái gì cũng rành mạch. Tôi rành mạch với con số người ta. Của mình thì tôi để đó.</p>
+    <p class="brk">*　*　*</p>
+    <p>Chiều. Ba ngồi hàng ba sau, nhìn ra đồng. Đồng giờ không còn nước, chỉ còn bùn se với mấy bụi bồn bồn xanh ở vuông đất của má. Ba ngồi đó mỗi chiều, nhìn. Có bữa ba tỉnh, ba kêu tôi chỉ cái này cái kia ngoài đồng. Có bữa ba lẫn, ba ngồi nhìn mà mắt đục, hỏi gì ừ hử. Có bữa ba kêu tên má. Có bữa ba hỏi con mực đâu, tôi nói nó ngủ sau hè, ba ừ. Cái tên Loan ba không kêu nữa, từ bữa kể chuyện ghe. Hay ba quên luôn rồi. Tôi không biết. Mấy cái trong đầu ba, tôi gom góp được mảnh nào hay mảnh đó, ráp không thành, mà tôi cũng thôi không cố ráp.</p>
+    <p>"Hậu." Ba kêu.</p>
+    <p>"Dạ."</p>
+    <p>"Đói bụng. Nấu cơm chưa bây."</p>
+    <p>Tôi ngó đồng hồ. Mới hơn bốn giờ. Còn sớm. Mà ba đói thì nấu. Người già giờ giấc lộn xộn, đói lúc nào ăn lúc đó.</p>
+    <p>"Dạ con nấu liền."</p>
+    <p>Tôi xuống bếp. Tôi lấy gạo, đong hai lon — hai cha con ăn hai lon là vừa, dư chút để nguội sáng chiên — đổ vô thau. Tôi vo. Nước máy chảy vô gạo, đục, tôi chà nhẹ, đổ nước đục, hứng nước mới, vo lần hai. Gạo trắng đãi qua mấy ngón tay tôi. Cái việc này tôi làm cả đời. Hồi nhỏ má sai vo gạo. Lớn lên đi làm xa, tối về phòng trọ vo gạo nấu cơm một mình. Lấy chồng, vo gạo nấu cho hai đứa. Bây giờ về đây, vo gạo nấu cho ba.</p>
+    <p>Ngoài kia ba kêu vói xuống: "Nhớ kho nồi cá rô chú Bảy cho. Tao ăn cá rô."</p>
+    <p>"Dạ. Con kho rồi nè ba. Có cá rô."</p>
+    <p>Tôi vo gạo xong, đổ nước, gạn cho vừa lóng tay. Bắc nồi lên bếp. Tôi bật lửa. Lửa gas xanh liếm lên đáy nồi. Tôi đứng đó, một tay còn vịn cái quai nồi, đợi nước sôi để vặn nhỏ lửa.</p>
+    <p>Ngoài kia trời xuống chiều. Bên cà phê võng Hương lại nhạc, Đàm Vĩnh Hưng, cái bài đó, bài mà năm tháng nay sáng nào chiều nào cũng vọng qua. Ba ngồi nhìn ra vuông bồn bồn. Cái va li mốc trong góc. Xấp giấy chưa ký trong hộc tủ. Nồi cơm trên bếp bắt đầu nóng.</p>
+    <p>Tôi đứng coi nồi cơm.</p>
+    <div class="post-foot"><a href="#c14">← Nước rút</a><span class="sep">·</span><a href="#top">↑ lên đầu</a><span class="sep">·</span><a href="#cuoi">Vài dòng cuối →</a></div>
+  </article>
+
+  <!-- ===== Lời cuối ===== -->
+  <article class="post note" id="cuoi">
+    <div class="meta">20 tháng 2, 2025</div>
+    <h2>Vài dòng, sau khi viết xong</h2>
+    <p>Vậy là hết. Cảm ơn ai đã đọc tới đây — đọc một truyện không có gì gay cấn, không có ai chết bất ngờ, chỉ có hai cha con với một mùa nước, mà chịu đọc tới cuối, thì tôi quý lắm.</p>
+    <p>Mấy bữa đăng mấy chương cuối, có người nhắn hỏi tôi rồi Hậu có ký giấy không, có về Cần Thơ không, chú Bảy với Hậu có gì không. Tôi không biết. Thiệt tình tôi không biết. Tôi viết tới chỗ Hậu đứng coi nồi cơm là tôi hết biết, nên tôi để vậy. Đời ngoài kia nó cũng đâu có gút lại gọn cho mình, nên thôi tôi để truyện y vậy.</p>
+    <p>Tôi không sửa nữa đâu. Đọc lại thấy còn vài chỗ vụng, kệ. Để dành sức viết cái khác. Ai có lời gì cứ giữ trong bụng giùm tôi, hoặc bữa nào gặp ngoài đời nói cũng được. Thương.</p>
+  </article>
+
+</main>
+
+<!-- ===== Sidebar ===== -->
+<aside class="sidebar">
+  <div class="box" id="gioithieu">
+    <h3>Giới thiệu</h3>
+    <p>Tên thật không quan trọng, trên này gọi Thương cho gọn. Dân miền Tây, lưu lạc lên Sài Gòn làm văn phòng, cơm áo như ai. Viết cho vui, không phải nhà văn.</p>
+    <p>Blog này tôi lập năm 2014, ban đầu định viết blog nấu ăn, rồi lười, bỏ. Giờ thỉnh thoảng quăng lên đây mấy thứ mình viết. Ai lạc vô đọc thì đọc, không thì thôi, đừng ngại.</p>
+    <p><small>Phần bình luận tôi tắt lâu rồi, hồi trước mở thì toàn spam bán thuốc với link tào lao. Muốn nói gì thì email, tôi có đọc (mà ít khi trả lời, thông cảm).</small></p>
+  </div>
+
+  <div class="box">
+    <h3>Mục lục «Mùa nước rút»</h3>
+    <p class="toc-part">Phần một — Nước đói</p>
+    <ul>
+      <li><a href="#c1">1. Bến xe</a></li>
+      <li><a href="#c2">2. Toa thuốc</a></li>
+      <li><a href="#c3">3. Bà Tư</a></li>
+      <li><a href="#c4">4. Lên huyện</a></li>
+      <li><a href="#c5">5. Nước chưa lên</a></li>
+    </ul>
+    <p class="toc-part">Phần hai — Nước lên</p>
+    <ul>
+      <li><a href="#c6">6. Cái máy may</a></li>
+      <li><a href="#c7">7. Rằm</a></li>
+      <li><a href="#c8">8. Đêm ba sốt</a></li>
+      <li><a href="#c9">9. Cá linh</a></li>
+      <li><a href="#c10">10. Buổi chiều</a></li>
+      <li><a href="#c11">11. Con mực</a></li>
+    </ul>
+    <p class="toc-part">Phần ba — Nước rút</p>
+    <ul>
+      <li><a href="#c12">12. Điện thoại</a></li>
+      <li><a href="#c13">13. Giăng câu</a></li>
+      <li><a href="#c14">14. Nước rút</a></li>
+      <li><a href="#c15">15. Nồi cơm</a></li>
+    </ul>
+  </div>
+
+  <div class="box">
+    <h3>Đang đọc</h3>
+    <ul>
+      <li>Biên sử nước — Nguyễn Ngọc Tư</li>
+      <li>Cánh đồng bất tận — Nguyễn Ngọc Tư <small>(đọc lại lần ba)</small></li>
+      <li>Rừng Na Uy — Haruki Murakami</li>
+      <li>Mắt biếc — Nguyễn Nhật Ánh</li>
+    </ul>
+  </div>
+
+  <div class="box">
+    <h3>Lưu trữ</h3>
+    <ul class="arch">
+      <li><a href="#c15">Tháng 2, 2025</a> <span>(3)</span></li>
+      <li><a href="#c12">Tháng 1, 2025</a> <span>(2)</span></li>
+      <li><a href="#c11">Tháng 12, 2024</a> <span>(2)</span></li>
+      <li><a href="#c8">Tháng 11, 2024</a> <span>(3)</span></li>
+      <li><a href="#c6">Tháng 10, 2024</a> <span>(3)</span></li>
+      <li><a href="#c1">Tháng 9, 2024</a> <span>(4)</span></li>
+    </ul>
+  </div>
+
+  <div class="box">
+    <p><small>Blog này không có quảng cáo, không bán gì, không có nút theo dõi. Viết cho vui thôi.</small></p>
+  </div>
+</aside>
+</div>
+
+<footer>
+  <div class="foot-inner">
+    <p>Ghi ở bến — Lê Hoài Thương · 2014–2025</p>
+    <p>Trang này tôi tự mò mẫm làm lấy, có gì xộc xệch thì bỏ qua giùm.</p>
+    <p>Truyện và mọi thứ trên đây là của tôi, ai thương thì đọc, đừng bê đi chỗ khác mà không nói tiếng nào.</p>
+  </div>
+</footer>
+
+<button id="totop" title="Lên đầu trang" aria-label="Lên đầu trang">↑</button>
+
+<script>
+(function(){
+  var KEY='ghioben_fs';
+  function cur(){ return parseInt(getComputedStyle(document.documentElement).getPropertyValue('--fs')) || 19; }
+  function setFs(px){ document.documentElement.style.setProperty('--fs', px+'px'); try{ localStorage.setItem(KEY, px); }catch(e){} }
+  try{ var s=localStorage.getItem(KEY); if(s){ setFs(parseInt(s)); } }catch(e){}
+  var dec=document.getElementById('fs-dec'), inc=document.getElementById('fs-inc');
+  if(dec) dec.addEventListener('click', function(){ var c=cur(); if(c>15) setFs(c-1); });
+  if(inc) inc.addEventListener('click', function(){ var c=cur(); if(c<26) setFs(c+1); });
+
+  var btn=document.getElementById('totop');
+  function onScroll(){ if(window.pageYOffset>700){ btn.classList.add('show'); } else { btn.classList.remove('show'); } }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  btn.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+  onScroll();
+})();
+</script>
+</body>
+</html>
